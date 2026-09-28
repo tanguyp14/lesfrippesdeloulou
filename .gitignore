@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Fichiers hors thème (non supportés par la synchro GitHub Shopify)
+data/
+
+# Shopify CLI
+.shopify/
+node_modules/
