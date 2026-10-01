@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "product-information",
@@ -406,7 +407,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>You may also like</h3>",
+            "text": "<h3>Vous aimerez aussi</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -493,6 +494,7 @@
                 "border_opacity": 100,
                 "border_color": "",
                 "border_radius": 0,
+                "link": "",
                 "open_in_new_tab": false,
                 "padding-block-start": 2,
                 "padding-block-end": 0,
@@ -531,6 +533,7 @@
                     "border_opacity": 100,
                     "border_color": "",
                     "border_radius": 0,
+                    "link": "",
                     "open_in_new_tab": false,
                     "padding-block-start": 0,
                     "padding-block-end": 0,
@@ -622,6 +625,7 @@
                     "border_opacity": 100,
                     "border_color": "",
                     "border_radius": 0,
+                    "link": "",
                     "open_in_new_tab": false,
                     "padding-block-start": 0,
                     "padding-block-end": 0,
