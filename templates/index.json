@@ -598,7 +598,7 @@
         "text_hzq6cM": {
           "type": "text",
           "settings": {
-            "text": "<p><a href=\"/collections/all\" title=\"All products\">Shop now</a></p>",
+            "text": "<p><a href=\"/products/versace-chemise-imprime-baroque-41\" target=\"_blank\" title=\"Chemise imprimé baroque Versace\">Veste Ballenciaga</a></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "right",
@@ -609,7 +609,7 @@
             "letter_spacing": "normal",
             "case": "uppercase",
             "wrap": "nowrap",
-            "text_color": "",
+            "text_color": "{{ settings.color_palette.background }}",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
