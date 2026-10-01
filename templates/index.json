@@ -705,7 +705,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>A size for every occasion</h2>",
+                "text": "<h2>Trouves des perles rares</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -731,7 +731,7 @@
               "type": "button",
               "name": "t:names.button",
               "settings": {
-                "label": "SHOP NOW",
+                "label": "VOIR TOUT NOS PRODUITS",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
                 "style_class": "button-unstyled",
@@ -751,46 +751,10 @@
             "text_XmzkXY",
             "button_aCXUUG"
           ]
-        },
-        "comparison_slider_YEKHnD": {
-          "type": "comparison-slider",
-          "name": "t:names.comparison_slider",
-          "settings": {
-            "slider_style": "horizontal",
-            "show_text": false,
-            "before_text": "",
-            "after_text": "",
-            "text_preset": "",
-            "text_position_horizontal": "start",
-            "text_position_vertical": "start",
-            "text_background": false,
-            "text_background_color": "#ffffff",
-            "text_corner_radius": 0,
-            "text_color": "{{ settings.color_palette.foreground }}",
-            "image_ratio": "landscape",
-            "width": "custom",
-            "custom_width": 50,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "slider_bg_color": "",
-            "slider_handle_color": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "group_Q6JxNp",
-        "comparison_slider_YEKHnD"
+        "group_Q6JxNp"
       ],
       "name": "t:names.section",
       "settings": {
