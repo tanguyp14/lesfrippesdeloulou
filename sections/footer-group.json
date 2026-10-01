@@ -293,7 +293,7 @@
       "settings": {
         "inverse": false,
         "font": "heading",
-        "unit": "percent",
+        "unit": "pixel",
         "pixel_height": 48,
         "percent_width": 100,
         "custom_mobile_size": false,
