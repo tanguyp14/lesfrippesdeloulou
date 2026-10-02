@@ -573,7 +573,7 @@
         "text_69C6UJ": {
           "type": "text",
           "settings": {
-            "text": "<h2>Lorem ipsum</h2>",
+            "text": "<h2>Trouve la perle rare.</h2>",
             "width": "fit-content",
             "max_width": "none",
             "alignment": "left",
@@ -598,7 +598,7 @@
         "text_hzq6cM": {
           "type": "text",
           "settings": {
-            "text": "<p><a href=\"/products/versace-chemise-imprime-baroque-41\" target=\"_blank\" title=\"Chemise imprimé baroque Versace\">Veste Ballenciaga</a></p>",
+            "text": "<p><a href=\"/products/versace-chemise-imprime-baroque-41\" target=\"_blank\" title=\"Chemise imprimé baroque Versace\">Veste Ballenciaga de chez Loulou</a></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "right",
