@@ -1,36 +1,16 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banniere": {
       "type": "hero",
-      "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "flex-end",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 12,
-        "section_width": "full-width",
-        "section_height": "large",
-        "section_height_custom": 50,
-        "background_color": "rgba(0,0,0,0)",
-        "toggle_overlay": true,
-        "overlay_color": "#00000099",
-        "overlay_style": "gradient",
-        "gradient_direction": "to top",
-        "blurred_reflection": false,
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      },
       "blocks": {
         "ban_h": {
           "type": "text",
@@ -60,7 +40,36 @@
       "block_order": [
         "ban_h",
         "ban_p"
-      ]
+      ],
+      "settings": {
+        "media_type_1": "image",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-end",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "gap": 12,
+        "section_width": "full-width",
+        "section_height": "large",
+        "section_height_custom": 50,
+        "background_color": "rgba(0,0,0,0)",
+        "toggle_overlay": true,
+        "overlay_color": "#00000099",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     },
     "main": {
       "type": "main-page",
@@ -150,13 +159,6 @@
     },
     "marquee": {
       "type": "marquee",
-      "settings": {
-        "movement_direction": "normal",
-        "background_color": "{{ settings.color_palette.color2 }}",
-        "gap_between_elements": 48,
-        "padding-block-start": 28,
-        "padding-block-end": 28
-      },
       "blocks": {
         "mq_1": {
           "type": "text",
@@ -238,22 +240,17 @@
         "mq_4",
         "mq_5",
         "mq_6"
-      ]
+      ],
+      "settings": {
+        "movement_direction": "normal",
+        "background_color": "{{ settings.color_palette.color2 }}",
+        "padding-block-start": 28,
+        "padding-block-end": 28,
+        "gap_between_elements": 48
+      }
     },
     "etapes": {
       "type": "section",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "flex-start",
-        "gap": 32,
-        "section_width": "page-width",
-        "section_height": "",
-        "background_color": "{{ settings.color_palette.color2 }}",
-        "padding-block-start": 56,
-        "padding-block-end": 56
-      },
       "blocks": {
         "e_h": {
           "type": "text",
@@ -452,7 +449,19 @@
       "block_order": [
         "e_h",
         "e_cols"
-      ]
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "background_color": "{{ settings.color_palette.color2 }}",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
     },
     "detail": {
       "type": "media-with-content",
@@ -528,18 +537,6 @@
     },
     "galerie": {
       "type": "section",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "flex-start",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "",
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 56,
-        "padding-block-end": 56
-      },
       "blocks": {
         "g_h": {
           "type": "text",
@@ -621,12 +618,22 @@
       "block_order": [
         "g_h",
         "g_row"
-      ]
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "",
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
     },
     "marques": {
       "type": "collection-list",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "collection_list": [
           "hermes",
@@ -651,18 +658,6 @@
     },
     "faq": {
       "type": "section",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "flex-start",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "",
-        "background_color": "{{ settings.color_palette.color2 }}",
-        "padding-block-start": 56,
-        "padding-block-end": 56
-      },
       "blocks": {
         "f_h": {
           "type": "text",
@@ -784,22 +779,22 @@
       "block_order": [
         "f_h",
         "f_a"
-      ]
-    },
-    "cta": {
-      "type": "section",
+      ],
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
-        "horizontal_alignment": "center",
+        "horizontal_alignment": "flex-start",
         "vertical_alignment": "flex-start",
-        "gap": 16,
+        "gap": 24,
         "section_width": "page-width",
         "section_height": "",
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 72,
-        "padding-block-end": 88
-      },
+        "background_color": "{{ settings.color_palette.color2 }}",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
+    },
+    "cta": {
+      "type": "section",
       "blocks": {
         "cta_h": {
           "type": "text",
@@ -838,7 +833,19 @@
         "cta_h",
         "cta_p",
         "cta_b"
-      ]
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "flex-start",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "",
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 72,
+        "padding-block-end": 88
+      }
     }
   },
   "order": [
