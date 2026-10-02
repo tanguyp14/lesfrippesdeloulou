@@ -588,7 +588,7 @@
         "cit_a": {
           "type": "text",
           "settings": {
-            "text": "<p>— Loulou, fondatrice</p>",
+            "text": "<p>— Les fripes de loulou</p>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "center",
