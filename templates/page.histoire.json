@@ -1,162 +1,355 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "banniere": {
+      "type": "hero",
+      "settings": {
+        "media_type_1": "image",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-end",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "gap": 12,
+        "section_width": "full-width",
+        "section_height": "large",
+        "section_height_custom": 50,
+        "background_color": "rgba(0,0,0,0)",
+        "toggle_overlay": true,
+        "overlay_color": "#00000099",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      },
       "blocks": {
-        "heading": {
+        "ban_h": {
           "type": "text",
           "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
-            "width": "100%",
+            "text": "<h1>Histoire de la friperie</h1>",
+            "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "h2",
-            "wrap": "pretty"
+            "wrap": "pretty",
+            "text_color": "{{ settings.color_palette.background }}"
           }
         },
+        "ban_p": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "wrap": "pretty",
+            "text_color": "{{ settings.color_palette.background }}"
+          }
+        }
+      },
+      "block_order": [
+        "ban_h",
+        "ban_p"
+      ]
+    },
+    "main": {
+      "type": "main-page",
+      "blocks": {
         "page-content": {
           "type": "page-content",
           "settings": {}
         }
       },
       "block_order": [
-        "heading",
         "page-content"
       ],
       "settings": {
         "gap": 32,
         "background_color": "{{ settings.color_palette.background }}",
         "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-end": 24
       }
     },
     "intro": {
-      "type": "section",
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "i_h": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Lorem ipsum dolor sit amet</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "wrap": "pretty",
+                "text_color": ""
+              }
+            },
+            "i_p": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "wrap": "pretty",
+                "text_color": ""
+              }
+            }
+          },
+          "block_order": [
+            "i_h",
+            "i_p"
+          ]
+        }
+      },
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "flex-start",
-        "gap": 24,
+        "media_position": "right",
+        "media_width": "medium",
+        "media_height": "large",
         "section_width": "page-width",
-        "section_height": "fit",
+        "extend_media": false,
         "background_color": "{{ settings.color_palette.background }}",
         "padding-block-start": 24,
-        "padding-block-end": 48
-      },
-      "blocks": {
-        "intro_h": {
-          "type": "text",
-          "settings": {
-            "text": "<h2>Lorem ipsum dolor sit amet, consectetur</h2>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "left",
-            "type_preset": "h3",
-            "wrap": "pretty"
-          }
-        },
-        "intro_p": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "paragraph",
-            "wrap": "pretty"
-          }
-        }
-      },
-      "block_order": [
-        "intro_h",
-        "intro_p"
-      ]
+        "padding-block-end": 56
+      }
     },
-    "chapitre_1": {
-      "type": "section",
+    "chronologie": {
+      "type": "slideshow",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "flex-start",
-        "gap": 24,
+        "display_mode": "carousel",
         "section_width": "page-width",
-        "section_height": "fit",
+        "full_frame_on_mobile": false,
+        "slideshow_gap": 16,
+        "corner_radius": 0,
+        "slide_height": "medium",
+        "content_position": "bottom-left",
         "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 48,
-        "padding-block-end": 24
+        "autoplay": false,
+        "slideshow_controls_style": "floating",
+        "padding-block-start": 56,
+        "padding-block-end": 56
       },
       "blocks": {
-        "c1_h": {
-          "type": "text",
+        "slide_1": {
+          "type": "_slide",
           "settings": {
-            "text": "<h2>2019 — Lorem ipsum</h2>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h3",
-            "wrap": "pretty"
-          }
+            "media_type_1": "image",
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-end",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-end",
+            "gap": 12,
+            "background_color": "rgba(0,0,0,0)",
+            "toggle_overlay": true,
+            "overlay_color": "#00000099",
+            "overlay_style": "gradient"
+          },
+          "blocks": {
+            "slide_1_t": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>2019 — Lorem ipsum</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.background }}"
+              }
+            },
+            "slide_1_p": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.background }}"
+              }
+            }
+          },
+          "block_order": [
+            "slide_1_t",
+            "slide_1_p"
+          ]
         },
-        "c1_p": {
-          "type": "text",
+        "slide_2": {
+          "type": "_slide",
           "settings": {
-            "text": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "paragraph",
-            "wrap": "pretty"
-          }
+            "media_type_1": "image",
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-end",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-end",
+            "gap": 12,
+            "background_color": "rgba(0,0,0,0)",
+            "toggle_overlay": true,
+            "overlay_color": "#00000099",
+            "overlay_style": "gradient"
+          },
+          "blocks": {
+            "slide_2_t": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>2021 — Dolor sit amet</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.background }}"
+              }
+            },
+            "slide_2_p": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.background }}"
+              }
+            }
+          },
+          "block_order": [
+            "slide_2_t",
+            "slide_2_p"
+          ]
+        },
+        "slide_3": {
+          "type": "_slide",
+          "settings": {
+            "media_type_1": "image",
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-end",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-end",
+            "gap": 12,
+            "background_color": "rgba(0,0,0,0)",
+            "toggle_overlay": true,
+            "overlay_color": "#00000099",
+            "overlay_style": "gradient"
+          },
+          "blocks": {
+            "slide_3_t": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>2023 — Consectetur elit</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.background }}"
+              }
+            },
+            "slide_3_p": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.background }}"
+              }
+            }
+          },
+          "block_order": [
+            "slide_3_t",
+            "slide_3_p"
+          ]
+        },
+        "slide_4": {
+          "type": "_slide",
+          "settings": {
+            "media_type_1": "image",
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-end",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-end",
+            "gap": 12,
+            "background_color": "rgba(0,0,0,0)",
+            "toggle_overlay": true,
+            "overlay_color": "#00000099",
+            "overlay_style": "gradient"
+          },
+          "blocks": {
+            "slide_4_t": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>2026 — Sed do eiusmod</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.background }}"
+              }
+            },
+            "slide_4_p": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.background }}"
+              }
+            }
+          },
+          "block_order": [
+            "slide_4_t",
+            "slide_4_p"
+          ]
         }
       },
       "block_order": [
-        "c1_h",
-        "c1_p"
-      ]
-    },
-    "chapitre_2": {
-      "type": "section",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "flex-start",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "fit",
-        "background_color": "{{ settings.color_palette.color2 }}",
-        "padding-block-start": 24,
-        "padding-block-end": 48
-      },
-      "blocks": {
-        "c2_h": {
-          "type": "text",
-          "settings": {
-            "text": "<h2>2022 — Dolor sit amet</h2>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h3",
-            "wrap": "pretty"
-          }
-        },
-        "c2_p": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "paragraph",
-            "wrap": "pretty"
-          }
-        }
-      },
-      "block_order": [
-        "c2_h",
-        "c2_p"
+        "slide_1",
+        "slide_2",
+        "slide_3",
+        "slide_4"
       ]
     },
     "citation": {
@@ -169,31 +362,33 @@
         "gap": 12,
         "section_width": "page-width",
         "section_height": "fit",
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 64,
-        "padding-block-end": 64
+        "background_color": "{{ settings.color_palette.color2 }}",
+        "padding-block-start": 72,
+        "padding-block-end": 72
       },
       "blocks": {
         "cit": {
           "type": "text",
           "settings": {
-            "text": "<h2><em>« Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis. »</em></h2>",
+            "text": "<h2><em>« Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. »</em></h2>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "center",
             "type_preset": "h3",
-            "wrap": "pretty"
+            "wrap": "pretty",
+            "text_color": ""
           }
         },
         "cit_a": {
           "type": "text",
           "settings": {
-            "text": "<p>— Loulou, lorem ipsum</p>",
+            "text": "<p>— Loulou, fondatrice</p>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "center",
             "type_preset": "paragraph",
-            "wrap": "pretty"
+            "wrap": "pretty",
+            "text_color": ""
           }
         }
       },
@@ -201,6 +396,74 @@
         "cit",
         "cit_a"
       ]
+    },
+    "atelier": {
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "a_h": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Duis aute irure dolor</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "wrap": "pretty",
+                "text_color": ""
+              }
+            },
+            "a_p": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "wrap": "pretty",
+                "text_color": ""
+              }
+            },
+            "a_b": {
+              "type": "button",
+              "settings": {
+                "label": "DÉCOUVRIR LA BOUTIQUE",
+                "link": "shopify://collections/all",
+                "style_class": "button-primary"
+              }
+            }
+          },
+          "block_order": [
+            "a_h",
+            "a_p",
+            "a_b"
+          ]
+        }
+      },
+      "settings": {
+        "media_position": "left",
+        "media_width": "medium",
+        "media_height": "large",
+        "section_width": "page-width",
+        "extend_media": false,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
     },
     "valeurs": {
       "type": "section",
@@ -213,11 +476,11 @@
         "section_width": "page-width",
         "section_height": "fit",
         "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 56,
+        "padding-block-end": 56
       },
       "blocks": {
-        "val_h": {
+        "v_h": {
           "type": "text",
           "settings": {
             "text": "<h2>Sed ut perspiciatis</h2>",
@@ -225,10 +488,11 @@
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "h3",
-            "wrap": "pretty"
+            "wrap": "pretty",
+            "text_color": ""
           }
         },
-        "val_cols": {
+        "v_cols": {
           "type": "group",
           "settings": {
             "content_direction": "row",
@@ -240,19 +504,30 @@
             "height": "fit"
           },
           "blocks": {
-            "col_1": {
+            "v1": {
               "type": "group",
               "settings": {
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "flex-start",
-                "gap": 8,
+                "gap": 10,
                 "width": "fill",
                 "height": "fit"
               },
               "blocks": {
-                "col_1_t": {
+                "v1_i": {
+                  "type": "image",
+                  "settings": {
+                    "image_ratio": "landscape",
+                    "width": "fill",
+                    "width_mobile": "fill",
+                    "height": "fit",
+                    "border": "none",
+                    "border_radius": 0
+                  }
+                },
+                "v1_t": {
                   "type": "text",
                   "settings": {
                     "text": "<h3>Lorem</h3>",
@@ -260,39 +535,53 @@
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "h4",
-                    "wrap": "pretty"
+                    "wrap": "pretty",
+                    "text_color": ""
                   }
                 },
-                "col_1_p": {
+                "v1_p": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>",
+                    "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "paragraph",
-                    "wrap": "pretty"
+                    "wrap": "pretty",
+                    "text_color": ""
                   }
                 }
               },
               "block_order": [
-                "col_1_t",
-                "col_1_p"
+                "v1_i",
+                "v1_t",
+                "v1_p"
               ]
             },
-            "col_2": {
+            "v2": {
               "type": "group",
               "settings": {
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "flex-start",
-                "gap": 8,
+                "gap": 10,
                 "width": "fill",
                 "height": "fit"
               },
               "blocks": {
-                "col_2_t": {
+                "v2_i": {
+                  "type": "image",
+                  "settings": {
+                    "image_ratio": "landscape",
+                    "width": "fill",
+                    "width_mobile": "fill",
+                    "height": "fit",
+                    "border": "none",
+                    "border_radius": 0
+                  }
+                },
+                "v2_t": {
                   "type": "text",
                   "settings": {
                     "text": "<h3>Ipsum</h3>",
@@ -300,39 +589,53 @@
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "h4",
-                    "wrap": "pretty"
+                    "wrap": "pretty",
+                    "text_color": ""
                   }
                 },
-                "col_2_p": {
+                "v2_p": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>",
+                    "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "paragraph",
-                    "wrap": "pretty"
+                    "wrap": "pretty",
+                    "text_color": ""
                   }
                 }
               },
               "block_order": [
-                "col_2_t",
-                "col_2_p"
+                "v2_i",
+                "v2_t",
+                "v2_p"
               ]
             },
-            "col_3": {
+            "v3": {
               "type": "group",
               "settings": {
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "flex-start",
-                "gap": 8,
+                "gap": 10,
                 "width": "fill",
                 "height": "fit"
               },
               "blocks": {
-                "col_3_t": {
+                "v3_i": {
+                  "type": "image",
+                  "settings": {
+                    "image_ratio": "landscape",
+                    "width": "fill",
+                    "width_mobile": "fill",
+                    "height": "fit",
+                    "border": "none",
+                    "border_radius": 0
+                  }
+                },
+                "v3_t": {
                   "type": "text",
                   "settings": {
                     "text": "<h3>Dolor</h3>",
@@ -340,38 +643,146 @@
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "h4",
-                    "wrap": "pretty"
+                    "wrap": "pretty",
+                    "text_color": ""
                   }
                 },
-                "col_3_p": {
+                "v3_p": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>",
+                    "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "paragraph",
-                    "wrap": "pretty"
+                    "wrap": "pretty",
+                    "text_color": ""
                   }
                 }
               },
               "block_order": [
-                "col_3_t",
-                "col_3_p"
+                "v3_i",
+                "v3_t",
+                "v3_p"
               ]
             }
           },
           "block_order": [
-            "col_1",
-            "col_2",
-            "col_3"
+            "v1",
+            "v2",
+            "v3"
           ]
         }
       },
       "block_order": [
-        "val_h",
-        "val_cols"
+        "v_h",
+        "v_cols"
       ]
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {
+        "movement_direction": "left",
+        "background_color": "{{ settings.color_palette.color2 }}",
+        "gap_between_elements": 48,
+        "padding-block-start": 28,
+        "padding-block-end": 28
+      },
+      "blocks": {
+        "mq_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>DEPUIS 2019</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "wrap": "pretty",
+            "text_color": ""
+          }
+        },
+        "mq_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PIÈCES RARES</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "wrap": "pretty",
+            "text_color": ""
+          }
+        },
+        "mq_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>LOREM IPSUM</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "wrap": "pretty",
+            "text_color": ""
+          }
+        },
+        "mq_4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>DOLOR SIT AMET</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "wrap": "pretty",
+            "text_color": ""
+          }
+        },
+        "mq_5": {
+          "type": "text",
+          "settings": {
+            "text": "<p>CHINÉ AVEC SOIN</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "wrap": "pretty",
+            "text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "mq_1",
+        "mq_2",
+        "mq_3",
+        "mq_4",
+        "mq_5"
+      ]
+    },
+    "marques": {
+      "type": "collection-list",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "collection_list": [
+          "hermes",
+          "jean-paul-gaultier",
+          "louis-vuitton",
+          "dior",
+          "burberry"
+        ],
+        "layout_type": "grid",
+        "carousel_on_mobile": true,
+        "columns": 4,
+        "mobile_columns": 2,
+        "columns_gap": 16,
+        "rows_gap": 16,
+        "max_collections": 8,
+        "section_width": "page-width",
+        "gap": 16,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 56,
+        "padding-block-end": 72
+      }
     },
     "cta": {
       "type": "section",
@@ -384,8 +795,8 @@
         "section_width": "page-width",
         "section_height": "fit",
         "background_color": "{{ settings.color_palette.color2 }}",
-        "padding-block-start": 64,
-        "padding-block-end": 80
+        "padding-block-start": 72,
+        "padding-block-end": 88
       },
       "blocks": {
         "cta_h": {
@@ -396,18 +807,20 @@
             "max_width": "narrow",
             "alignment": "center",
             "type_preset": "h3",
-            "wrap": "pretty"
+            "wrap": "pretty",
+            "text_color": ""
           }
         },
         "cta_p": {
           "type": "text",
           "settings": {
-            "text": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "text": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "center",
             "type_preset": "paragraph",
-            "wrap": "pretty"
+            "wrap": "pretty",
+            "text_color": ""
           }
         },
         "cta_b": {
@@ -427,12 +840,15 @@
     }
   },
   "order": [
+    "banniere",
     "main",
     "intro",
-    "chapitre_1",
-    "chapitre_2",
+    "chronologie",
     "citation",
+    "atelier",
     "valeurs",
+    "marquee",
+    "marques",
     "cta"
   ]
 }
