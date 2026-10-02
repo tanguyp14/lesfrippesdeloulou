@@ -1,0 +1,495 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "wrap": "pretty"
+          }
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "settings": {
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "intro": {
+      "type": "section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "fit",
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 24,
+        "padding-block-end": 48
+      },
+      "blocks": {
+        "intro_h": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Lorem ipsum dolor sit amet</h2>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "h3",
+            "wrap": "pretty"
+          }
+        },
+        "intro_p": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "wrap": "pretty"
+          }
+        }
+      },
+      "block_order": [
+        "intro_h",
+        "intro_p"
+      ]
+    },
+    "etapes": {
+      "type": "section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "fit",
+        "background_color": "{{ settings.color_palette.color2 }}",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      },
+      "blocks": {
+        "etapes_h": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Consectetur adipiscing elit</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h3",
+            "wrap": "pretty"
+          }
+        },
+        "etapes_cols": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-start",
+            "gap": 32,
+            "width": "fill",
+            "height": "fit"
+          },
+          "blocks": {
+            "col_1": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "flex-start",
+                "gap": 8,
+                "width": "fill",
+                "height": "fit"
+              },
+              "blocks": {
+                "col_1_t": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>01 · Lorem sourcing</h3>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h4",
+                    "wrap": "pretty"
+                  }
+                },
+                "col_1_p": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "wrap": "pretty"
+                  }
+                }
+              },
+              "block_order": [
+                "col_1_t",
+                "col_1_p"
+              ]
+            },
+            "col_2": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "flex-start",
+                "gap": 8,
+                "width": "fill",
+                "height": "fit"
+              },
+              "blocks": {
+                "col_2_t": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>02 · Ipsum authenticité</h3>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h4",
+                    "wrap": "pretty"
+                  }
+                },
+                "col_2_p": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "wrap": "pretty"
+                  }
+                }
+              },
+              "block_order": [
+                "col_2_t",
+                "col_2_p"
+              ]
+            },
+            "col_3": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "flex-start",
+                "gap": 8,
+                "width": "fill",
+                "height": "fit"
+              },
+              "blocks": {
+                "col_3_t": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>03 · Dolor remise en état</h3>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h4",
+                    "wrap": "pretty"
+                  }
+                },
+                "col_3_p": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "wrap": "pretty"
+                  }
+                }
+              },
+              "block_order": [
+                "col_3_t",
+                "col_3_p"
+              ]
+            }
+          },
+          "block_order": [
+            "col_1",
+            "col_2",
+            "col_3"
+          ]
+        }
+      },
+      "block_order": [
+        "etapes_h",
+        "etapes_cols"
+      ]
+    },
+    "detail": {
+      "type": "section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "fit",
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      },
+      "blocks": {
+        "detail_h": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Ut enim ad minim veniam</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h3",
+            "wrap": "pretty"
+          }
+        },
+        "detail_p": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "wrap": "pretty"
+          }
+        },
+        "detail_p2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "wrap": "pretty"
+          }
+        }
+      },
+      "block_order": [
+        "detail_h",
+        "detail_p",
+        "detail_p2"
+      ]
+    },
+    "faq": {
+      "type": "section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "fit",
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      },
+      "blocks": {
+        "faq_h": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Quis nostrud exercitation</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h3",
+            "wrap": "pretty"
+          }
+        },
+        "faq_acc": {
+          "type": "accordion",
+          "settings": {},
+          "blocks": {
+            "row_1": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Lorem ipsum dolor sit amet ?"
+              },
+              "blocks": {
+                "row_1_txt": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "wrap": "pretty"
+                  }
+                }
+              },
+              "block_order": [
+                "row_1_txt"
+              ]
+            },
+            "row_2": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Consectetur adipiscing elit ?"
+              },
+              "blocks": {
+                "row_2_txt": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "wrap": "pretty"
+                  }
+                }
+              },
+              "block_order": [
+                "row_2_txt"
+              ]
+            },
+            "row_3": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Sed do eiusmod tempor incididunt ?"
+              },
+              "blocks": {
+                "row_3_txt": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "wrap": "pretty"
+                  }
+                }
+              },
+              "block_order": [
+                "row_3_txt"
+              ]
+            },
+            "row_4": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Ut labore et dolore magna aliqua ?"
+              },
+              "blocks": {
+                "row_4_txt": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "wrap": "pretty"
+                  }
+                }
+              },
+              "block_order": [
+                "row_4_txt"
+              ]
+            }
+          },
+          "block_order": [
+            "row_1",
+            "row_2",
+            "row_3",
+            "row_4"
+          ]
+        }
+      },
+      "block_order": [
+        "faq_h",
+        "faq_acc"
+      ]
+    },
+    "cta": {
+      "type": "section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "flex-start",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "fit",
+        "background_color": "{{ settings.color_palette.color2 }}",
+        "padding-block-start": 64,
+        "padding-block-end": 80
+      },
+      "blocks": {
+        "cta_h": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Excepteur sint occaecat</h2>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h3",
+            "wrap": "pretty"
+          }
+        },
+        "cta_p": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "wrap": "pretty"
+          }
+        },
+        "cta_b": {
+          "type": "button",
+          "settings": {
+            "label": "VOIR LA SÉLECTION",
+            "link": "shopify://collections/all",
+            "style_class": "button-primary"
+          }
+        }
+      },
+      "block_order": [
+        "cta_h",
+        "cta_p",
+        "cta_b"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "intro",
+    "etapes",
+    "detail",
+    "faq",
+    "cta"
+  ]
+}
