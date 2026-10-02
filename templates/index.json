@@ -756,6 +756,7 @@
       "block_order": [
         "group_Q6JxNp"
       ],
+      "disabled": true,
       "name": "t:names.section",
       "settings": {
         "content_direction": "row",
