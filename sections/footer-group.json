@@ -119,7 +119,7 @@
                   "type": "menu",
                   "name": "t:names.menu",
                   "settings": {
-                    "menu": "",
+                    "menu": "menu-a-propos",
                     "heading": "À propos",
                     "menu_spacing": 12,
                     "show_as_accordion": false,
@@ -140,8 +140,8 @@
                   "type": "menu",
                   "name": "t:names.menu",
                   "settings": {
-                    "menu": "",
-                    "heading": "Contact",
+                    "menu": "contact-menu",
+                    "heading": "Contact & informations",
                     "menu_spacing": 12,
                     "show_as_accordion": false,
                     "accordion_icon": "caret",
