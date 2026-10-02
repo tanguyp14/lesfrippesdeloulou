@@ -131,7 +131,7 @@
       "settings": {
         "media_position": "right",
         "media_width": "medium",
-        "media_height": "large",
+        "media_height": "60svh",
         "section_width": "page-width",
         "extend_media": false,
         "background_color": "{{ settings.color_palette.background }}",
@@ -142,16 +142,16 @@
     "chronologie": {
       "type": "slideshow",
       "settings": {
-        "display_mode": "carousel",
+        "display_mode": "with_hints",
         "section_width": "page-width",
         "full_frame_on_mobile": false,
         "slideshow_gap": 16,
         "corner_radius": 0,
         "slide_height": "medium",
-        "content_position": "bottom-left",
+        "content_position": "on-media",
         "background_color": "{{ settings.color_palette.background }}",
         "autoplay": false,
-        "slideshow_controls_style": "floating",
+        "slideshow_controls_style": "dots",
         "padding-block-start": 56,
         "padding-block-end": 56
       },
@@ -361,7 +361,7 @@
         "vertical_alignment": "flex-start",
         "gap": 12,
         "section_width": "page-width",
-        "section_height": "fit",
+        "section_height": "",
         "background_color": "{{ settings.color_palette.color2 }}",
         "padding-block-start": 72,
         "padding-block-end": 72
@@ -443,7 +443,7 @@
               "settings": {
                 "label": "DÉCOUVRIR LA BOUTIQUE",
                 "link": "shopify://collections/all",
-                "style_class": "button-primary"
+                "style_class": "button"
               }
             }
           },
@@ -457,7 +457,7 @@
       "settings": {
         "media_position": "left",
         "media_width": "medium",
-        "media_height": "large",
+        "media_height": "60svh",
         "section_width": "page-width",
         "extend_media": false,
         "background_color": "{{ settings.color_palette.background }}",
@@ -474,7 +474,7 @@
         "vertical_alignment": "flex-start",
         "gap": 32,
         "section_width": "page-width",
-        "section_height": "fit",
+        "section_height": "",
         "background_color": "{{ settings.color_palette.background }}",
         "padding-block-start": 56,
         "padding-block-end": 56
@@ -682,7 +682,7 @@
     "marquee": {
       "type": "marquee",
       "settings": {
-        "movement_direction": "left",
+        "movement_direction": "normal",
         "background_color": "{{ settings.color_palette.color2 }}",
         "gap_between_elements": 48,
         "padding-block-start": 28,
@@ -773,7 +773,7 @@
         "layout_type": "grid",
         "carousel_on_mobile": true,
         "columns": 4,
-        "mobile_columns": 2,
+        "mobile_columns": "2",
         "columns_gap": 16,
         "rows_gap": 16,
         "max_collections": 8,
@@ -793,7 +793,7 @@
         "vertical_alignment": "flex-start",
         "gap": 16,
         "section_width": "page-width",
-        "section_height": "fit",
+        "section_height": "",
         "background_color": "{{ settings.color_palette.color2 }}",
         "padding-block-start": 72,
         "padding-block-end": 88
@@ -828,7 +828,7 @@
           "settings": {
             "label": "DÉCOUVRIR LA BOUTIQUE",
             "link": "shopify://collections/all",
-            "style_class": "button-primary"
+            "style_class": "button"
           }
         }
       },
