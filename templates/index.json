@@ -94,60 +94,6 @@
         "padding-block-end": 20
       }
     },
-    "collection_links_Ut4aMz": {
-      "type": "collection-links",
-      "blocks": {
-        "link": {
-          "type": "_collection-link",
-          "static": true,
-          "settings": {
-            "show_count": true
-          },
-          "blocks": {
-            "title": {
-              "type": "_inline-collection-title",
-              "static": true,
-              "settings": {
-                "font": "var(--font-heading--family)",
-                "weight": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none"
-              },
-              "blocks": {}
-            },
-            "image": {
-              "type": "_image",
-              "static": true,
-              "settings": {
-                "height": "medium",
-                "ratio": "portrait",
-                "border_radius": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
-        }
-      },
-      "name": "t:names.collection_links",
-      "settings": {
-        "collection_list": [
-          "balenciaga",
-          "gucci",
-          "hermes",
-          "hugo-boss",
-          "lacoste"
-        ],
-        "layout": "spotlight",
-        "section_width": "page-width",
-        "alignment": "left",
-        "image_position": "right",
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 82,
-        "padding-block-end": 82
-      }
-    },
     "featured_product_mTUbKC": {
       "type": "featured-product",
       "blocks": {
@@ -551,8 +497,8 @@
         "collection": "test-site",
         "layout_type": "grid",
         "carousel_on_mobile": false,
-        "max_products": 4,
-        "columns": 4,
+        "max_products": 6,
+        "columns": 3,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
         "columns_gap": 26,
@@ -786,13 +732,72 @@
         "padding-block-start": 82,
         "padding-block-end": 82
       }
+    },
+    "category_links_main": {
+      "type": "category-links",
+      "blocks": {
+        "category_1": {
+          "type": "category",
+          "settings": {
+            "title": "Homme",
+            "link": "/collections/homme"
+          }
+        },
+        "category_2": {
+          "type": "category",
+          "settings": {
+            "title": "Femme",
+            "link": "/collections/femme"
+          }
+        },
+        "category_3": {
+          "type": "category",
+          "settings": {
+            "title": "Loulou",
+            "link": "/pages/histoire",
+            "image": "shopify://shop_images/pexels-mertcoskunraw-33402232_-_Grande_1f6eae71-68db-4524-a9c4-787d0e0ca017.jpg"
+          }
+        },
+        "category_4": {
+          "type": "category",
+          "settings": {
+            "title": "Pièces vendues",
+            "link": "/collections/all?view=vendues&filter.v.availability=0"
+          }
+        },
+        "category_5": {
+          "type": "category",
+          "settings": {
+            "title": "Contact",
+            "link": "/pages/contact",
+            "image": "shopify://shop_images/pexels-ekrulila-27292675_-_Grande_e2e288cc-ec82-442c-9b65-ff12f3e71701.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "category_1",
+        "category_2",
+        "category_3",
+        "category_4",
+        "category_5"
+      ],
+      "name": "Liens catégories",
+      "settings": {
+        "show_count": true,
+        "section_width": "page-width",
+        "alignment": "left",
+        "image_position": "right",
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 82,
+        "padding-block-end": 82
+      }
     }
   },
   "order": [
     "hero_iyt6zg",
-    "collection_links_Ut4aMz",
-    "featured_product_mTUbKC",
+    "category_links_main",
     "product_list_UwRqN4",
+    "featured_product_mTUbKC",
     "hero_MVUtj6",
     "section_F9fMc4"
   ]

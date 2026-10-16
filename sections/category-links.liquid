@@ -1,0 +1,260 @@
+{% comment %}
+  Liens de catégories (collections, pages ou URL libres) avec l'image qui suit le survol.
+  Reprend le composant et la mise en page « spotlight » de la section collection-links.
+{% endcomment %}
+
+<script
+  src="{{ 'collection-links.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+<div
+  class="section section--{{ section.settings.section_width }}{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %} spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <collection-links-component
+    class="category-links"
+    layout="spotlight"
+    alignment="{{ section.settings.alignment }}"
+    {% if section.settings.image_position == 'left' %}
+      reverse
+    {% endif %}
+  >
+    <div
+      class="collection-links__container"
+      ref="container"
+    >
+      {% for block in section.blocks %}
+        {% liquid
+          assign link_collection = nil
+          if block.settings.link contains '/collections/'
+            assign handle = block.settings.link | split: '/collections/' | last | split: '?' | first | split: '/' | first
+            assign link_collection = collections[handle]
+          endif
+        %}
+        <a
+          href="{{ block.settings.link | default: '#' }}"
+          class="collection-links__link category-links__link"
+          ref="links[]"
+          on:pointerenter="/select/{{ forloop.index0 }}"
+          on:focus="/select/{{ forloop.index0 }}"
+          aria-current="{{ forloop.first }}"
+          {{ block.shopify_attributes }}
+        >
+          <span class="category-links__title">
+            {{- block.settings.title | escape -}}
+            {%- liquid
+              assign show_count = false
+              if section.settings.show_count and link_collection != blank and link_collection.all_products_count > 0
+                unless block.settings.link contains '?'
+                  assign show_count = true
+                endunless
+              endif
+            -%}
+            {%- if show_count -%}
+              &nbsp;<sup class="collection-links__count">{{ link_collection.all_products_count }}</sup>
+            {%- endif -%}
+          </span>
+        </a>
+      {% endfor %}
+    </div>
+
+    {% capture slides %}
+      {% for block in section.blocks %}
+        {% liquid
+          assign link_collection = nil
+          if block.settings.link contains '/collections/'
+            assign handle = block.settings.link | split: '/collections/' | last | split: '?' | first | split: '/' | first
+            assign link_collection = collections[handle]
+          endif
+
+          assign image = block.settings.image | default: link_collection.featured_image | default: link_collection.products.first.featured_image
+          assign loading = 'lazy'
+          if forloop.first
+            assign loading = 'eager'
+          endif
+        %}
+        {% capture slide %}
+          <a
+            href="{{ block.settings.link | default: '#' }}"
+            class="collection-links__image category-links__image"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            {% if image %}
+              {{
+                image
+                | image_url: width: 1600
+                | image_tag: widths: '352, 832, 1200, 1600', sizes: '(min-width: 750px) 45vw, 100vw', loading: loading, alt: ''
+              }}
+            {% else %}
+              {{ 'collection-apparel-1' | placeholder_svg_tag: 'category-links__placeholder' }}
+            {% endif %}
+          </a>
+        {% endcapture %}
+        {% render 'slideshow-slide', children: slide, index: forloop.index0 %}
+      {% endfor %}
+    {% endcapture %}
+
+    {% render 'slideshow',
+      slides: slides,
+      slide_count: section.blocks.size,
+      class: 'collection-links__images',
+      ref: 'slideshow'
+    %}
+  </collection-links-component>
+</div>
+
+{% stylesheet %}
+  .category-links[layout='spotlight'] {
+    --template-column-ratio: 0.8fr;
+  }
+
+  .category-links__title {
+    font-family: var(--font-heading--family);
+    font-style: var(--font-heading--style);
+    font-weight: var(--font-heading--weight);
+    line-height: 1.1;
+  }
+
+  .category-links__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+
+    img,
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .category-links__placeholder {
+    background-color: rgb(var(--color-foreground-rgb) / 0.05);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Liens catégories",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "max_blocks": 8,
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Catégorie",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Catégorie"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Si vide et que le lien pointe vers une collection, l'image de la collection est utilisée."
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_count",
+      "label": "Afficher le nombre de produits des collections",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Largeur",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Pleine largeur" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignement",
+      "options": [
+        { "value": "left", "label": "Gauche" },
+        { "value": "center", "label": "Centre" },
+        { "value": "right", "label": "Droite" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Position de l'image",
+      "options": [
+        { "value": "left", "label": "Gauche" },
+        { "value": "right", "label": "Droite" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond"
+    },
+    {
+      "type": "header",
+      "content": "Marges"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Haut",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bas",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Liens catégories",
+      "blocks": [
+        { "type": "category", "settings": { "title": "Homme", "link": "/collections/homme" } },
+        { "type": "category", "settings": { "title": "Femme", "link": "/collections/femme" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
