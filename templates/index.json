@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<h5>Hermès<br/><em>Messenger 57</em></h5>",
+            "text": "<h5>Burberry<br/><em>Trenchs vintage</em></h5>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "right",
@@ -42,8 +42,8 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Voir le sac",
-            "link": "shopify://products/versace-chemise-imprime-baroque-41",
+            "label": "Voir Burberry",
+            "link": "shopify://collections/burberry",
             "open_in_new_tab": true,
             "style_class": "button",
             "custom_button_background": "{{ settings.color_palette.foreground }}",
@@ -70,7 +70,7 @@
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
-        "link": "shopify://products/versace-chemise-imprime-baroque-41",
+        "link": "shopify://collections/burberry",
         "open_in_new_tab": true,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -183,7 +183,7 @@
       },
       "name": "t:names.featured_product",
       "settings": {
-        "product": "versace-chemise-imprime-baroque-41",
+        "product": "pochette-monogram-louis-vuitton",
         "layout": "media-left",
         "background_color": "{{ settings.color_palette.color2 }}",
         "padding-block-start": 0,
@@ -494,7 +494,7 @@
       },
       "name": "t:names.product_list",
       "settings": {
-        "collection": "test-site",
+        "collection": "all",
         "layout_type": "grid",
         "carousel_on_mobile": false,
         "max_products": 6,
@@ -544,7 +544,7 @@
         "text_hzq6cM": {
           "type": "text",
           "settings": {
-            "text": "<p><a href=\"/products/versace-chemise-imprime-baroque-41\" target=\"_blank\" title=\"Chemise imprimé baroque Versace\">Veste Ballenciaga de chez Loulou</a></p>",
+            "text": "<p><a href=\"/products/jean-evisu-mouettes-jaunes\" title=\"Jean Evisu mouettes jaunes\">Jean Evisu de chez Loulou</a></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "right",

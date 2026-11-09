@@ -1414,11 +1414,14 @@
       },
       "settings": {
         "collection_list": [
-          "hermes",
-          "jean-paul-gaultier",
+          "burberry",
           "louis-vuitton",
-          "dior",
-          "burberry"
+          "hermes",
+          "christian-dior",
+          "kenzo",
+          "stone-island",
+          "evisu",
+          "ami-paris"
         ],
         "layout_type": "grid",
         "carousel_on_mobile": true,
