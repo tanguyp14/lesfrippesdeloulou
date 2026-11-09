@@ -316,7 +316,10 @@
             "show_powered_by": true,
             "text_color": "",
             "font_size": "0.75rem",
-            "case": "none"
+            "case": "none",
+            "designer_prefix": "Conception :",
+            "designer_label": "tanguypinel.com",
+            "designer_url": "https://tanguypinel.com"
           },
           "blocks": {}
         },

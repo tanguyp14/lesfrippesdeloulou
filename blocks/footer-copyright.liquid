@@ -18,6 +18,14 @@
     {%- if block_settings.show_powered_by -%}
       , {{ powered_by_link }}
     {%- endif -%}
+    {%- if block_settings.designer_label != blank -%}
+      {%- if block_settings.designer_url != blank %}
+        · {{ block_settings.designer_prefix }}
+        <a href="{{ block_settings.designer_url }}" target="_blank" rel="noopener">{{ block_settings.designer_label }}</a>
+      {%- else %}
+        · {{ block_settings.designer_prefix }} {{ block_settings.designer_label }}
+      {%- endif -%}
+    {%- endif -%}
   </span>
 </div>
 
@@ -41,6 +49,23 @@
     {
       "type": "paragraph",
       "content": "t:content.manage_store_name"
+    },
+    {
+      "type": "text",
+      "id": "designer_prefix",
+      "label": "Mention conception",
+      "default": "Conception :"
+    },
+    {
+      "type": "text",
+      "id": "designer_label",
+      "label": "Concepteur du site",
+      "default": "tanguypinel.com"
+    },
+    {
+      "type": "url",
+      "id": "designer_url",
+      "label": "Lien du concepteur"
     },
     {
       "type": "header",
