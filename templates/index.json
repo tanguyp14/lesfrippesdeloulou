@@ -20,7 +20,7 @@
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "right",
-            "type_preset": "h1",
+            "type_preset": "h3",
             "font": "var(--font-heading--family)",
             "font_size": "1rem",
             "line_height": "tight",
@@ -43,7 +43,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Voir les nouveautés",
-            "link": "shopify://collections/all",
+            "link": "/collections/all?sort_by=created-descending",
             "open_in_new_tab": true,
             "style_class": "button",
             "custom_button_background": "{{ settings.color_palette.foreground }}",
