@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<h5>Pièces de luxe<br/><em>et premium</em></h5>",
+            "text": "<h5>Pièces de luxe<br/>et premium</h5>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "right",
@@ -82,8 +82,8 @@
         "vertical_alignment_flex_direction_column": "flex-end",
         "gap": 16,
         "section_width": "page-width",
-        "section_height": "large",
-        "section_height_custom": 50,
+        "section_height": "custom",
+        "section_height_custom": 40,
         "background_color": "rgba(0,0,0,0)",
         "toggle_overlay": true,
         "overlay_color": "#0000003D",
@@ -101,24 +101,24 @@
         "category_1": {
           "type": "category",
           "settings": {
-            "title": "Homme",
-            "link": "/collections/homme",
+            "title": "La boutique",
+            "link": "/collections/all",
             "image": "shopify://shop_images/manteau-burberry-marine.jpg"
           }
         },
         "category_2": {
           "type": "category",
           "settings": {
-            "title": "Femme",
-            "link": "/collections/femme",
+            "title": "Les nouveautés",
+            "link": "/collections/all?sort_by=created-descending",
             "image": "shopify://shop_images/sac-cuir-noir-boucle-coeur.jpg"
           }
         },
         "category_accessoires": {
           "type": "category",
           "settings": {
-            "title": "Accessoires",
-            "link": "/collections/accessoires",
+            "title": "Les archives vendues",
+            "link": "/collections/all?view=vendues&filter.v.availability=0",
             "image": "shopify://shop_images/lunettes-soleil-prada-etui.jpg"
           }
         }

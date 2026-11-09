@@ -1,0 +1,20 @@
+/*
+  Les Archives de Loulou : tout le texte du site en majuscules, comme le logo.
+  Seuls les champs où le client tape (e-mail, message, adresse) gardent sa saisie telle quelle.
+*/
+body,
+body *,
+body *::before,
+body *::after {
+  text-transform: uppercase !important;
+}
+
+body input:not([type='search']):not([type='submit']):not([type='button']),
+body textarea {
+  text-transform: none !important;
+}
+
+body input::placeholder,
+body textarea::placeholder {
+  text-transform: uppercase !important;
+}
