@@ -15,11 +15,11 @@
           "type": "text",
           "name": "t:names.title",
           "settings": {
-            "text": "<h1>Pièces vendues</h1><p>Chaque pièce chez Loulou est unique. Voici celles qui ont déjà trouvé preneur, pour vous donner une idée de ce que nous dénichons.</p>",
+            "text": "<h2>Les archives vendues</h2><p>Chaque pièce chez Loulou est unique. Voici celles qui ont déjà trouvé preneur, pour vous donner une idée de ce que nous dénichons.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "h2",
+            "type_preset": "rte",
             "font": "var(--font-body--family)",
             "line_height": "normal",
             "letter_spacing": "normal",
