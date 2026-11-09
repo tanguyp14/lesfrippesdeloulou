@@ -64,7 +64,7 @@
       ],
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/pexels-ekrulila-27292675_-_Grande_e2e288cc-ec82-442c-9b65-ff12f3e71701.jpg",
+        "image_1": "shopify://shop_images/trenchs-burberry-beige-lot.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -102,7 +102,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/pexels-ekrulila-27292675_-_Grande_e2e288cc-ec82-442c-9b65-ff12f3e71701.jpg",
+            "image": "shopify://shop_images/pochette-louis-vuitton-monogram.jpg",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
@@ -574,7 +574,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/pexels-mertcoskunraw-33402232_-_Grande_1f6eae71-68db-4524-a9c4-787d0e0ca017.jpg",
+        "image_1": "shopify://shop_images/jean-evisu-mouettes-jaunes.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -740,14 +740,16 @@
           "type": "category",
           "settings": {
             "title": "Homme",
-            "link": "/collections/homme"
+            "link": "/collections/homme",
+            "image": "shopify://shop_images/manteau-burberry-marine.jpg"
           }
         },
         "category_2": {
           "type": "category",
           "settings": {
             "title": "Femme",
-            "link": "/collections/femme"
+            "link": "/collections/femme",
+            "image": "shopify://shop_images/sac-cuir-noir-boucle-coeur.jpg"
           }
         },
         "category_3": {
@@ -755,14 +757,15 @@
           "settings": {
             "title": "Loulou",
             "link": "/pages/histoire",
-            "image": "shopify://shop_images/pexels-mertcoskunraw-33402232_-_Grande_1f6eae71-68db-4524-a9c4-787d0e0ca017.jpg"
+            "image": "shopify://shop_images/parapluie-burberry-carreaux.jpg"
           }
         },
         "category_4": {
           "type": "category",
           "settings": {
             "title": "Pièces vendues",
-            "link": "/collections/all?view=vendues&filter.v.availability=0"
+            "link": "/collections/all?view=vendues&filter.v.availability=0",
+            "image": "shopify://shop_images/tshirts-chanel-noirs-lot.jpg"
           }
         },
         "category_5": {
@@ -770,7 +773,7 @@
           "settings": {
             "title": "Contact",
             "link": "/pages/contact",
-            "image": "shopify://shop_images/pexels-ekrulila-27292675_-_Grande_e2e288cc-ec82-442c-9b65-ff12f3e71701.jpg"
+            "image": "shopify://shop_images/pull-kenzo-raye-noir-blanc.jpg"
           }
         }
       },

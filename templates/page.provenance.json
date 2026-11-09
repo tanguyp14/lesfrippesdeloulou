@@ -95,7 +95,8 @@
         "blurred_reflection": false,
         "reflection_opacity": 75,
         "padding-block-start": 0,
-        "padding-block-end": 20
+        "padding-block-end": 20,
+        "image_1": "shopify://shop_images/cardigans-rayes-kenzo-jungle-sonia-rykiel.jpg"
       }
     },
     "main": {
@@ -132,7 +133,8 @@
             "video_loop": true,
             "video_autoplay": false,
             "image_position": "cover",
-            "video_position": "cover"
+            "video_position": "cover",
+            "image": "shopify://shop_images/sac-burberry-carreaux-gris.jpg"
           },
           "blocks": {}
         },
@@ -526,7 +528,8 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "image": "shopify://shop_images/cravates-lot-motifs.jpg"
                   },
                   "blocks": {}
                 },
@@ -644,7 +647,8 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "image": "shopify://shop_images/tshirt-ami-paris-noir-detail-logo.jpg"
                   },
                   "blocks": {}
                 },
@@ -762,7 +766,8 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "image": "shopify://shop_images/jean-evisu-mouettes-rouges.jpg"
                   },
                   "blocks": {}
                 },
@@ -876,7 +881,8 @@
             "video_loop": true,
             "video_autoplay": false,
             "image_position": "cover",
-            "video_position": "cover"
+            "video_position": "cover",
+            "image": "shopify://shop_images/lunettes-soleil-prada-etui.jpg"
           },
           "blocks": {}
         },
@@ -1068,7 +1074,8 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "image": "shopify://shop_images/sweat-off-white-orange.jpg"
               },
               "blocks": {}
             },
@@ -1090,7 +1097,8 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "image": "shopify://shop_images/mules-argentees-pointues.jpg"
               },
               "blocks": {}
             },
@@ -1112,7 +1120,8 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "image": "shopify://shop_images/pantalon-chloe-marron.jpg"
               },
               "blocks": {}
             },
@@ -1134,7 +1143,8 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "image": "shopify://shop_images/sac-cuir-rose-pale.jpg"
               },
               "blocks": {}
             }

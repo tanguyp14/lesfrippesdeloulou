@@ -95,7 +95,8 @@
         "blurred_reflection": false,
         "reflection_opacity": 75,
         "padding-block-start": 0,
-        "padding-block-end": 52
+        "padding-block-end": 52,
+        "image_1": "shopify://shop_images/trench-burberry-marron.jpg"
       }
     },
     "main": {
@@ -132,7 +133,8 @@
             "video_loop": true,
             "video_autoplay": false,
             "image_position": "cover",
-            "video_position": "cover"
+            "video_position": "cover",
+            "image": "shopify://shop_images/vestes-burberry-doublure-carreaux.jpg"
           },
           "blocks": {}
         },
@@ -236,7 +238,8 @@
             "padding-block-start": 0,
             "padding-block-end": 20,
             "padding-inline-start": 20,
-            "padding-inline-end": 0
+            "padding-inline-end": 0,
+            "image_1": "shopify://shop_images/veste-brodee-kaki.jpg"
           },
           "blocks": {
             "slide_1_t": {
@@ -315,7 +318,8 @@
             "padding-block-start": 0,
             "padding-block-end": 20,
             "padding-inline-start": 20,
-            "padding-inline-end": 0
+            "padding-inline-end": 0,
+            "image_1": "shopify://shop_images/sac-banane-cuir-lilas.jpg"
           },
           "blocks": {
             "text_UALE9e": {
@@ -394,7 +398,8 @@
             "padding-block-start": 0,
             "padding-block-end": 20,
             "padding-inline-start": 20,
-            "padding-inline-end": 0
+            "padding-inline-end": 0,
+            "image_1": "shopify://shop_images/tshirt-ami-paris-noir.jpg"
           },
           "blocks": {
             "text_CQYfaQ": {
@@ -473,7 +478,8 @@
             "padding-block-start": 0,
             "padding-block-end": 20,
             "padding-inline-start": 20,
-            "padding-inline-end": 0
+            "padding-inline-end": 0,
+            "image_1": "shopify://shop_images/carre-soie-bleu-flacons-parfum.jpg"
           },
           "blocks": {
             "text_JJMLmX": {
@@ -656,7 +662,8 @@
             "video_loop": true,
             "video_autoplay": false,
             "image_position": "cover",
-            "video_position": "cover"
+            "video_position": "cover",
+            "image": "shopify://shop_images/pulls-ami-paris-noir-mauve.jpg"
           },
           "blocks": {}
         },
@@ -880,7 +887,8 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "image": "shopify://shop_images/echarpe-burberry-rouge.jpg"
                   },
                   "blocks": {}
                 },
@@ -998,7 +1006,8 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "image": "shopify://shop_images/ballerines-paillettes-roses.jpg"
                   },
                   "blocks": {}
                 },
@@ -1116,7 +1125,8 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "image": "shopify://shop_images/cravates-lot-soie.jpg"
                   },
                   "blocks": {}
                 },
