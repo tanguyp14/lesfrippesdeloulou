@@ -753,22 +753,6 @@
             "image": "shopify://shop_images/sac-cuir-noir-boucle-coeur.jpg"
           }
         },
-        "category_3": {
-          "type": "category",
-          "settings": {
-            "title": "Loulou",
-            "link": "/pages/histoire",
-            "image": "shopify://shop_images/parapluie-burberry-carreaux.jpg"
-          }
-        },
-        "category_4": {
-          "type": "category",
-          "settings": {
-            "title": "Pièces vendues",
-            "link": "/collections/all?view=vendues&filter.v.availability=0",
-            "image": "shopify://shop_images/tshirts-chanel-noirs-lot.jpg"
-          }
-        },
         "category_5": {
           "type": "category",
           "settings": {
@@ -790,8 +774,6 @@
         "category_1",
         "category_2",
         "category_accessoires",
-        "category_3",
-        "category_4",
         "category_5"
       ],
       "name": "Liens catégories",

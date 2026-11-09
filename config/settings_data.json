@@ -9,8 +9,8 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/les-archives-de-loulou-logo.png",
-    "logo_inverse": "shopify://shop_images/les-archives-de-loulou-logo-blanc.png",
+    "logo": "shopify://shop_images/logo-archives-loulou-noir.png",
+    "logo_inverse": "shopify://shop_images/logo-archives-loulou-blanc.png",
     "page_text_color": "{{ settings.color_palette.foreground }}",
     "type_body_font": "red_hat_text_n4",
     "type_subheading_font": "newsreader_n2",
@@ -97,8 +97,8 @@
       "color1": "#383838",
       "color2": "#F2F2F2"
     },
-    "logo_height": 64,
-    "logo_height_mobile": 48
+    "logo_height": 44,
+    "logo_height_mobile": 32
   },
   "presets": {
     "Atelier": {
