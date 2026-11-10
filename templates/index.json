@@ -18,7 +18,7 @@
             "image": "shopify://shop_images/ceinture-cuir-noir_8fed91d0-6c91-4aed-a2c3-66d0e451a3b0.jpg",
             "title": "Pièces de luxe\net premium",
             "button_label": "Voir les nouveautés",
-            "link": "/collections/all?sort_by=created-descending"
+            "link": "shopify://collections"
           }
         },
         "panel_2": {
