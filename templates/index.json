@@ -24,9 +24,9 @@
         "panel_2": {
           "type": "panel",
           "settings": {
-            "image": "shopify://shop_images/tshirt-ami-paris-noir.jpg",
-            "title": "Lorem\nIpsum",
-            "button_label": "AMI PARIS",
+            "image": "shopify://shop_images/sac-banane-cuir-lilas_c2d607bf-5c8d-43ec-a797-d327a1846aac.jpg",
+            "title": "les accessoires",
+            "button_label": "voir les nouveautés",
             "link": "shopify://collections/ami-paris"
           }
         }
