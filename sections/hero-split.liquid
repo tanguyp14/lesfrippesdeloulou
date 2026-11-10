@@ -1,0 +1,458 @@
+{% comment %}
+  Bannière double : deux panneaux (image, titre, bouton, lien) côte à côte sur ordinateur,
+  en slider horizontal sur mobile.
+{% endcomment %}
+
+{% liquid
+  assign panel_count = section.blocks.size
+%}
+
+<div
+  class="section section--{{ section.settings.section_width }} spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <hero-split
+    class="hero-split"
+    style="
+      --hero-split-height: {{ section.settings.height }}svh;
+      --hero-split-height-mobile: {{ section.settings.height_mobile }}svh;
+      --hero-split-gap: {{ section.settings.gap }}px;
+      --hero-split-justify: {{ section.settings.horizontal_alignment }};
+      --hero-split-align: {{ section.settings.vertical_alignment }};
+      --hero-split-text-align: {% case section.settings.horizontal_alignment %}{% when 'flex-start' %}left{% when 'center' %}center{% else %}right{% endcase %};
+      --hero-split-text-color: {{ section.settings.text_color }};
+      --overlay-color: {{ section.settings.overlay_color }};
+      --overlay-color--end: {{ section.settings.overlay_color | color_modify: 'alpha', 0 }};
+    "
+  >
+    <div
+      class="hero-split__track"
+      ref="track"
+    >
+      {% for block in section.blocks %}
+        {% liquid
+          assign loading = 'lazy'
+          if section.index == 1 or forloop.first
+            assign loading = 'eager'
+          endif
+          assign mobile_image = block.settings.image_mobile | default: block.settings.image
+        %}
+        <div
+          class="hero-split__panel"
+          id="hero-split-{{ block.id }}"
+          {{ block.shopify_attributes }}
+        >
+          {% if block.settings.link != blank %}
+            <a
+              href="{{ block.settings.link }}"
+              class="hero-split__link"
+              tabindex="-1"
+              aria-hidden="true"
+            ></a>
+          {% endif %}
+
+          <div class="hero-split__media">
+            {% if block.settings.image != blank %}
+              {{
+                block.settings.image
+                | image_url: width: 1800
+                | image_tag:
+                  widths: '600, 900, 1200, 1500, 1800',
+                  sizes: '(min-width: 750px) 50vw, 100vw',
+                  loading: loading,
+                  class: 'hero-split__image hero-split__image--desktop',
+                  alt: block.settings.image.alt
+              }}
+              {{
+                mobile_image
+                | image_url: width: 1200
+                | image_tag:
+                  widths: '400, 600, 800, 1000, 1200',
+                  sizes: '100vw',
+                  loading: loading,
+                  class: 'hero-split__image hero-split__image--mobile',
+                  alt: mobile_image.alt
+              }}
+            {% else %}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero-split__image hero-split__placeholder' }}
+            {% endif %}
+            {% if section.settings.toggle_overlay %}
+              <div class="hero-split__overlay"></div>
+            {% endif %}
+          </div>
+
+          <div class="hero-split__content">
+            {% if block.settings.title != blank %}
+              <p class="hero-split__title h3">{{ block.settings.title | escape | newline_to_br }}</p>
+            {% endif %}
+            {% if block.settings.button_label != blank and block.settings.link != blank %}
+              <a
+                href="{{ block.settings.link }}"
+                class="button hero-split__button"
+              >
+                {{- block.settings.button_label | escape -}}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if panel_count > 1 %}
+      <div class="hero-split__dots">
+        {% for block in section.blocks %}
+          <button
+            type="button"
+            class="hero-split__dot"
+            data-index="{{ forloop.index0 }}"
+            aria-label="Aller à la bannière {{ forloop.index }}"
+            {% if forloop.first %}
+              aria-current="true"
+            {% endif %}
+          ></button>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </hero-split>
+</div>
+
+<script>
+  if (!customElements.get('hero-split')) {
+    customElements.define(
+      'hero-split',
+      class extends HTMLElement {
+        connectedCallback() {
+          this.track = this.querySelector('.hero-split__track');
+          this.dots = [...this.querySelectorAll('.hero-split__dot')];
+          if (!this.track || !this.dots.length) return;
+
+          this.dots.forEach((dot) =>
+            dot.addEventListener('click', () => {
+              const panel = this.track.children[Number(dot.dataset.index)];
+              this.track.scrollTo({ left: panel.offsetLeft - this.track.offsetLeft, behavior: 'smooth' });
+            })
+          );
+
+          this.onScroll = () => {
+            const index = Math.round(this.track.scrollLeft / this.track.clientWidth);
+            this.dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)));
+          };
+          this.track.addEventListener('scroll', this.onScroll, { passive: true });
+        }
+
+        disconnectedCallback() {
+          this.track?.removeEventListener('scroll', this.onScroll);
+        }
+      }
+    );
+  }
+</script>
+
+{% stylesheet %}
+  .hero-split {
+    display: block;
+    position: relative;
+  }
+
+  .hero-split__track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: var(--hero-split-gap);
+  }
+
+  .hero-split__panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: var(--hero-split-align);
+    align-items: var(--hero-split-justify);
+    min-height: var(--hero-split-height);
+    padding: var(--padding-3xl, 40px);
+    overflow: hidden;
+    color: var(--hero-split-text-color);
+  }
+
+  .hero-split__media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-split__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--animation-easing, ease);
+  }
+
+  .hero-split__panel:hover .hero-split__image {
+    transform: scale(1.03);
+  }
+
+  .hero-split__image--mobile {
+    display: none;
+  }
+
+  .hero-split__placeholder {
+    background-color: rgb(var(--color-foreground-rgb) / 0.05);
+  }
+
+  .hero-split__overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to top, var(--overlay-color), var(--overlay-color--end));
+  }
+
+  .hero-split__link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+
+  .hero-split__content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: var(--hero-split-justify);
+    gap: 15px;
+    text-align: var(--hero-split-text-align);
+    pointer-events: none;
+  }
+
+  .hero-split__title {
+    margin: 0;
+    color: inherit;
+    line-height: 1.1;
+    text-wrap: pretty;
+  }
+
+  .hero-split__button {
+    pointer-events: auto;
+    --button-color: var(--color-background);
+    --button-background-color: var(--color-foreground);
+    --button-border-color: var(--color-background);
+  }
+
+  .hero-split__dots {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .hero-split__track {
+      grid-auto-columns: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      overscroll-behavior-x: contain;
+    }
+
+    .hero-split__track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hero-split__panel {
+      min-height: var(--hero-split-height-mobile);
+      padding: var(--padding-xl, 24px);
+      scroll-snap-align: start;
+    }
+
+    .hero-split__image--desktop {
+      display: none;
+    }
+
+    .hero-split__image--mobile {
+      display: block;
+    }
+
+    .hero-split__dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding-block-start: 12px;
+    }
+
+    .hero-split__dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 1px solid var(--color-foreground);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .hero-split__dot[aria-current='true'] {
+      background: var(--color-foreground);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Bannière double",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "max_blocks": 2,
+  "blocks": [
+    {
+      "type": "panel",
+      "name": "Panneau",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image mobile",
+          "info": "Optionnel. Si vide, l'image principale est utilisée."
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Titre",
+          "default": "Catégorie"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Texte du bouton",
+          "default": "Découvrir"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien",
+          "info": "Toute la bannière est cliquable."
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Largeur",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Pleine largeur" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Hauteur (ordinateur)",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "label": "Hauteur (mobile)",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Espace entre les panneaux",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment",
+      "label": "Alignement horizontal",
+      "options": [
+        { "value": "flex-start", "label": "Gauche" },
+        { "value": "center", "label": "Centre" },
+        { "value": "flex-end", "label": "Droite" }
+      ],
+      "default": "flex-end"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Alignement vertical",
+      "options": [
+        { "value": "flex-start", "label": "Haut" },
+        { "value": "center", "label": "Milieu" },
+        { "value": "flex-end", "label": "Bas" }
+      ],
+      "default": "flex-end"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle_overlay",
+      "label": "Dégradé sur l'image",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Couleur du dégradé",
+      "default": "#0000003D",
+      "alpha": true
+    },
+    {
+      "type": "header",
+      "content": "Marges"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Haut",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bas",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bannière double",
+      "blocks": [
+        { "type": "panel", "settings": { "title": "Femme", "button_label": "Découvrir" } },
+        { "type": "panel", "settings": { "title": "Homme", "button_label": "Découvrir" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
