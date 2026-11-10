@@ -9,93 +9,6 @@
  */
 {
   "sections": {
-    "hero_iyt6zg": {
-      "type": "hero",
-      "blocks": {
-        "text_tzGazA": {
-          "type": "text",
-          "name": "t:names.text",
-          "settings": {
-            "text": "<h5>Pièces de luxe<br/>et premium</h5>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "right",
-            "type_preset": "h3",
-            "font": "var(--font-heading--family)",
-            "font_size": "1rem",
-            "line_height": "tight",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "{{ settings.color_palette.background }}",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 15,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_rMD8CD": {
-          "type": "button",
-          "name": "t:names.button",
-          "settings": {
-            "label": "Voir les nouveautés",
-            "link": "/collections/all?sort_by=created-descending",
-            "open_in_new_tab": true,
-            "style_class": "button",
-            "custom_button_background": "{{ settings.color_palette.foreground }}",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
-            "link_text_color": "",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_tzGazA",
-        "button_rMD8CD"
-      ],
-      "settings": {
-        "media_type_1": "image",
-        "image_1": "shopify://shop_images/ceinture-cuir-noir_8fed91d0-6c91-4aed-a2c3-66d0e451a3b0.jpg",
-        "media_type_2": "image",
-        "image_2": "shopify://shop_images/tshirt-ami-paris-noir.jpg",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "link": "shopify://collections/all",
-        "open_in_new_tab": true,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-end",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 16,
-        "section_width": "page-width",
-        "section_height": "custom",
-        "section_height_custom": 40,
-        "background_color": "rgba(0,0,0,0)",
-        "toggle_overlay": true,
-        "overlay_color": "#0000003D",
-        "overlay_style": "gradient",
-        "gradient_direction": "to top",
-        "blurred_reflection": false,
-        "reflection_opacity": 29,
-        "padding-block-start": 0,
-        "padding-block-end": 20
-      },
-      "disabled": true
-    },
     "category_links_main": {
       "type": "category-links",
       "blocks": {
@@ -823,7 +736,6 @@
   },
   "order": [
     "hero_split_main",
-    "hero_iyt6zg",
     "category_links_main",
     "product_list_UwRqN4",
     "featured_product_mTUbKC",
