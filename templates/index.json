@@ -25,9 +25,9 @@
           "type": "panel",
           "settings": {
             "image": "shopify://shop_images/tshirt-ami-paris-noir.jpg",
-            "title": "Toute\nla boutique",
-            "button_label": "Voir la boutique",
-            "link": "/collections/all"
+            "title": "Lorem\nIpsum",
+            "button_label": "AMI PARIS",
+            "link": "shopify://collections/ami-paris"
           }
         }
       },
