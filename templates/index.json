@@ -9,6 +9,47 @@
  */
 {
   "sections": {
+    "hero_split_main": {
+      "type": "hero-split",
+      "blocks": {
+        "panel_1": {
+          "type": "panel",
+          "settings": {
+            "image": "shopify://shop_images/ceinture-cuir-noir_8fed91d0-6c91-4aed-a2c3-66d0e451a3b0.jpg",
+            "title": "Pièces de luxe\net premium",
+            "button_label": "Voir les nouveautés",
+            "link": "/collections/all?sort_by=created-descending"
+          }
+        },
+        "panel_2": {
+          "type": "panel",
+          "settings": {
+            "image": "shopify://shop_images/tshirt-ami-paris-noir.jpg",
+            "title": "Toute\nla boutique",
+            "button_label": "Voir la boutique",
+            "link": "/collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "panel_1",
+        "panel_2"
+      ],
+      "name": "Bannière double",
+      "settings": {
+        "section_width": "full-width",
+        "height": 60,
+        "height_mobile": 40,
+        "gap": 0,
+        "horizontal_alignment": "flex-end",
+        "vertical_alignment": "flex-end",
+        "text_color": "#ffffff",
+        "toggle_overlay": true,
+        "overlay_color": "#0000003d",
+        "padding-block-start": 0,
+        "padding-block-end": 20
+      }
+    },
     "category_links_main": {
       "type": "category-links",
       "blocks": {
@@ -690,47 +731,6 @@
         "border_radius": 0,
         "padding-block-start": 82,
         "padding-block-end": 82
-      }
-    },
-    "hero_split_main": {
-      "type": "hero-split",
-      "blocks": {
-        "panel_1": {
-          "type": "panel",
-          "settings": {
-            "image": "shopify://shop_images/ceinture-cuir-noir_8fed91d0-6c91-4aed-a2c3-66d0e451a3b0.jpg",
-            "title": "Pièces de luxe\net premium",
-            "button_label": "Voir les nouveautés",
-            "link": "/collections/all?sort_by=created-descending"
-          }
-        },
-        "panel_2": {
-          "type": "panel",
-          "settings": {
-            "image": "shopify://shop_images/tshirt-ami-paris-noir.jpg",
-            "title": "Toute\nla boutique",
-            "button_label": "Voir la boutique",
-            "link": "/collections/all"
-          }
-        }
-      },
-      "block_order": [
-        "panel_1",
-        "panel_2"
-      ],
-      "name": "Bannière double",
-      "settings": {
-        "section_width": "page-width",
-        "height": 60,
-        "height_mobile": 60,
-        "gap": 8,
-        "horizontal_alignment": "flex-end",
-        "vertical_alignment": "flex-end",
-        "text_color": "#FFFFFF",
-        "toggle_overlay": true,
-        "overlay_color": "#0000003D",
-        "padding-block-start": 0,
-        "padding-block-end": 20
       }
     }
   },
