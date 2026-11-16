@@ -59,3 +59,10 @@ body textarea::placeholder {
     font-size: 18px !important;
   }
 }
+
+/* Recherche : le bouton « Effacer » en majuscules était plus large que sa boîte et se faisait rogner. */
+.predictive-search__reset-button {
+  flex-shrink: 0;
+  width: auto;
+  padding-inline: 4px;
+}
