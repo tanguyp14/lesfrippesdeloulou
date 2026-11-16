@@ -291,6 +291,7 @@
       "type": "logo",
       "name": "t:names.logo",
       "settings": {
+        "image": "shopify://shop_images/archives-loulou-logo-accroche.png",
         "inverse": false,
         "font": "heading",
         "unit": "pixel",
