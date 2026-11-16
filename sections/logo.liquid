@@ -8,6 +8,10 @@
     assign image = settings.logo_inverse
   endif
 
+  if section_settings.image != blank
+    assign image = section_settings.image
+  endif
+
   if section_settings.background_color != blank
     render 'contrast-override', background_color: section_settings.background_color, section_id: section.id
   endif
@@ -131,6 +135,12 @@
     "groups": ["footer"]
   },
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image spécifique",
+      "info": "Remplace le logo des paramètres du thème pour cette section uniquement (ex. logo avec accroche dans le pied de page)."
+    },
     {
       "type": "checkbox",
       "label": "t:settings.use_inverse_logo",

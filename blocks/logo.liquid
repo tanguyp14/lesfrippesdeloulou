@@ -7,10 +7,6 @@
   if block_settings.inverse and settings.logo_inverse
     assign image = settings.logo_inverse
   endif
-
-  if block_settings.image != blank
-    assign image = block_settings.image
-  endif
 %}
 
 {%- if image -%}
@@ -109,12 +105,6 @@
   "name": "t:names.logo",
   "tag": null,
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Image spécifique",
-      "info": "Remplace le logo des paramètres du thème pour ce bloc uniquement (ex. logo avec accroche dans le pied de page)."
-    },
     {
       "type": "checkbox",
       "label": "t:settings.use_inverse_logo",
