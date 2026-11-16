@@ -7,9 +7,13 @@
   dir="{{ request.locale.direction | default: 'ltr' }}"
 >
   <head>
-    {%- comment -%} Favicon : monogramme LFDL (le même carré noir que le logo mobile). {%- endcomment -%}
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ 'favicon-lfdl-32.png' | asset_url }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ 'favicon-lfdl-180.png' | asset_url }}">
+    {%- if settings.favicon != blank -%}
+      <link
+        rel="icon"
+        type="image/png"
+        href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
+      >
+    {%- endif -%}
 
     {%- render 'view-transition-opt-in' -%}
 
