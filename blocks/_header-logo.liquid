@@ -51,7 +51,13 @@
     assign inverse_logo_style = '--header-logo-image-width: ' | append: inverse_logo_width | append: 'px;' | append: '--header-logo-image-width-mobile: ' | append: inverse_logo_width_mobile | append: 'px; --header-logo-image-height: ' | append: settings.logo_height | append: 'px; --header-logo-image-height-mobile: ' | append: settings.logo_height_mobile | append: 'px;'
   %}
 
-  <span class="header-logo__mark" aria-hidden="true">LFDL</span>
+  <img
+    class="header-logo__mark"
+    src="{{ 'logo-ladl-mobile.png' | asset_url }}"
+    alt="{{ alt_text_fallback | escape }}"
+    width="742"
+    height="178"
+  >
 
   <span
     {% if use_inverse_logo %}

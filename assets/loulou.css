@@ -19,28 +19,19 @@ body textarea::placeholder {
   text-transform: uppercase !important;
 }
 
-/* Mobile : le logo complet est remplacé par un monogramme LFDL dans un carré noir. */
+/* Mobile : le logo complet est remplacé par le logo court « LADL ». */
 .header-logo__mark {
   display: none;
 }
 
 @media screen and (max-width: 749px) {
   .header-logo__mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: #000;
-    color: #fff;
-    font-family: var(--font-heading--family);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    line-height: 1;
+    display: block;
+    width: auto;
+    height: 24px;
   }
 
-  .header-logo > span:not(.header-logo__mark) {
+  .header-logo > span {
     display: none !important;
   }
 }
