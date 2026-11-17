@@ -83,7 +83,7 @@
 
           <div class="hero-split__content">
             {% if block.settings.title != blank %}
-              <p class="hero-split__title h3">{{ block.settings.title | escape | newline_to_br }}</p>
+              <p class="hero-split__title {{ section.settings.title_size | default: 'h3' }}">{{ block.settings.title | escape | newline_to_br }}</p>
             {% endif %}
             {% if block.settings.button_label != blank and block.settings.link != blank %}
               <a
@@ -400,6 +400,19 @@
         { "value": "flex-end", "label": "Bas" }
       ],
       "default": "flex-end"
+    },
+    {
+      "type": "select",
+      "id": "title_size",
+      "label": "Taille du titre",
+      "options": [
+        { "value": "h2", "label": "Très grand" },
+        { "value": "h3", "label": "Grand" },
+        { "value": "h4", "label": "Moyen" },
+        { "value": "h5", "label": "Petit" },
+        { "value": "h6", "label": "Très petit" }
+      ],
+      "default": "h3"
     },
     {
       "type": "color",

@@ -41,13 +41,14 @@
         "height": 60,
         "height_mobile": 40,
         "gap": 0,
-        "horizontal_alignment": "flex-end",
+        "horizontal_alignment": "center",
         "vertical_alignment": "flex-end",
         "text_color": "#ffffff",
         "toggle_overlay": true,
         "overlay_color": "#00000047",
         "padding-block-start": 0,
-        "padding-block-end": 13
+        "padding-block-end": 13,
+        "title_size": "h5"
       }
     },
     "category_links_main": {
@@ -57,7 +58,7 @@
           "type": "category",
           "settings": {
             "title": "La boutique",
-            "link": "/collections/all",
+            "link": "/collections/all?view=boutique",
             "image": "shopify://shop_images/manteau-burberry-marine.jpg"
           }
         },
@@ -65,7 +66,7 @@
           "type": "category",
           "settings": {
             "title": "Les nouveautés",
-            "link": "/collections/all?sort_by=created-descending",
+            "link": "/collections/all?view=nouveautes&sort_by=created-descending",
             "image": "shopify://shop_images/sac-cuir-noir-boucle-coeur.jpg"
           }
         },
@@ -580,7 +581,7 @@
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
-        "link": "",
+        "link": "shopify://products/jean-evisu-mouettes-jaunes",
         "open_in_new_tab": false,
         "content_direction": "row",
         "vertical_on_mobile": true,
@@ -738,8 +739,8 @@
     "hero_split_main",
     "category_links_main",
     "product_list_UwRqN4",
-    "featured_product_mTUbKC",
     "hero_MVUtj6",
+    "featured_product_mTUbKC",
     "section_F9fMc4"
   ]
 }
