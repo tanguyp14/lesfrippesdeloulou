@@ -184,3 +184,16 @@ product-card [ref='productTitleLink'] .text-block > * {
   line-clamp: 2;
   overflow: hidden;
 }
+
+/* Fiche produit : « Acheter maintenant » en blanc bordé de noir (« Ajouter au panier » reste noir plein). */
+.product-details button.shopify-payment-button__button--unbranded {
+  --button-color: var(--color-foreground);
+  --button-background-color: var(--color-background);
+  --button-border-color: var(--color-foreground);
+  --button-border-width: 1px;
+}
+
+.product-details button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
+  --button-color: var(--color-background);
+  --button-background-color: var(--color-foreground);
+}
