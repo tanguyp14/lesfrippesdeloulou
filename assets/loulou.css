@@ -170,3 +170,17 @@ button.shopify-payment-button__button--unbranded {
   line-height: 1;
   color: var(--color-foreground);
 }
+
+/* Cartes produit : le titre occupe toujours deux lignes (coupé au-delà) pour aligner les prix. */
+product-card [ref='productTitleLink'] .text-block {
+  min-height: 2.6em;
+  min-height: 2lh;
+}
+
+product-card [ref='productTitleLink'] .text-block > * {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
