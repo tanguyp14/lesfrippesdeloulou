@@ -361,7 +361,8 @@
 
     {% liquid
       assign child_count = 0
-      if block_settings.enable_filtering == false and block_settings.enable_sorting
+      # Tri affiché aussi sur mobile à côté de « Filtrer » (et non plus seulement dans le tiroir)
+      if block_settings.enable_sorting
         assign child_count = child_count | plus: 1
       endif
       if block_settings.enable_grid_density
@@ -370,7 +371,7 @@
     %}
 
     <div class="facets-mobile-wrapper facets-controls-wrapper{% if child_count > 1 %} facets-mobile-wrapper--multiple-controls{% endif %}">
-      {% if block_settings.enable_filtering == false and block_settings.enable_sorting %}
+      {% if block_settings.enable_sorting %}
         <facets-form-component
           section-id="{{ section.id }}"
           id="FacetFiltersForm--{{ section.id }}-mobile-sorting-only"
@@ -390,7 +391,7 @@
               filter_style: block_settings.filter_style,
               suffix: 'mobile',
               sort_position: 'mobile',
-              should_use_select_on_mobile: should_use_select_on_mobile,
+              should_use_select_on_mobile: false,
               section_id: section.id
             %}
           </form>

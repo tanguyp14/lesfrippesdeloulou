@@ -16,16 +16,18 @@
           "type": "panel",
           "settings": {
             "image": "shopify://shop_images/ceinture-cuir-noir_8fed91d0-6c91-4aed-a2c3-66d0e451a3b0.jpg",
-            "title": "Pièces de luxe\net premium",
-            "button_label": "Voir les nouveautés",
-            "link": "shopify://collections"
+            "eyebrow": "Les archives de Loulou",
+            "title": "Pièces de luxe premium",
+            "button_label": "Voir la boutique",
+            "link": "/collections/all?view=boutique"
           }
         },
         "panel_2": {
           "type": "panel",
           "settings": {
             "image": "shopify://shop_images/sac-banane-cuir-lilas_c2d607bf-5c8d-43ec-a797-d327a1846aac.jpg",
-            "title": "les accessoires",
+            "eyebrow": "Les archives de Loulou",
+            "title": "Les accessoires",
             "button_label": "voir les nouveautés",
             "link": "shopify://collections/ami-paris"
           }
@@ -39,7 +41,7 @@
       "settings": {
         "section_width": "full-width",
         "height": 60,
-        "height_mobile": 40,
+        "height_mobile": 55,
         "gap": 0,
         "horizontal_alignment": "center",
         "vertical_alignment": "flex-end",
@@ -48,7 +50,8 @@
         "overlay_color": "#00000047",
         "padding-block-start": 0,
         "padding-block-end": 13,
-        "title_size": "h5"
+        "title_size": "h5",
+        "mobile_text_below": true
       }
     },
     "category_links_main": {
@@ -86,6 +89,7 @@
       ],
       "name": "Liens catégories",
       "settings": {
+        "mobile_tiles": true,
         "show_count": true,
         "section_width": "page-width",
         "alignment": "left",

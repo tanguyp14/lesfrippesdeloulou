@@ -12,7 +12,7 @@
   style="{% render 'spacing-style', settings: section.settings %}"
 >
   <hero-split
-    class="hero-split"
+    class="hero-split{% if section.settings.mobile_text_below %} hero-split--text-below{% endif %}"
     style="
       --hero-split-height: {{ section.settings.height }}svh;
       --hero-split-height-mobile: {{ section.settings.height_mobile }}svh;
@@ -82,6 +82,9 @@
           </div>
 
           <div class="hero-split__content">
+            {% if block.settings.eyebrow != blank %}
+              <p class="hero-split__eyebrow">{{ block.settings.eyebrow | escape }}</p>
+            {% endif %}
             {% if block.settings.title != blank %}
               <p class="hero-split__title {{ section.settings.title_size | default: 'h3' }}">{{ block.settings.title | escape | newline_to_br }}</p>
             {% endif %}
@@ -229,6 +232,13 @@
     text-wrap: pretty;
   }
 
+  .hero-split__eyebrow {
+    margin: 0;
+    font-size: var(--font-size--xs, 0.75rem);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
   .hero-split__button {
     pointer-events: auto;
     --button-color: var(--color-background);
@@ -287,6 +297,49 @@
     .hero-split__dot[aria-current='true'] {
       background: var(--color-foreground);
     }
+
+    /* Texte sous l'image : image en haut, contenu centré en dessous, sur le fond de la page */
+    .hero-split--text-below .hero-split__panel {
+      min-height: 0;
+      padding: 0;
+      justify-content: flex-start;
+      align-items: stretch;
+      color: var(--color-foreground);
+    }
+
+    .hero-split--text-below .hero-split__media {
+      position: relative;
+      inset: auto;
+      height: var(--hero-split-height-mobile);
+      overflow: hidden;
+    }
+
+    .hero-split--text-below .hero-split__overlay {
+      display: none;
+    }
+
+    .hero-split--text-below .hero-split__content {
+      align-items: center;
+      gap: 12px;
+      padding: 24px var(--padding-xl, 24px) 4px;
+      text-align: center;
+    }
+
+    .hero-split--text-below .hero-split__title {
+      font-size: clamp(1.25rem, 6.2vw, 1.75rem);
+      letter-spacing: 0.12em;
+      line-height: 1.2;
+    }
+
+    .hero-split--text-below .hero-split__title br {
+      display: none;
+    }
+
+    .hero-split--text-below .hero-split__button {
+      margin-block-start: 6px;
+      padding-inline: 48px;
+      letter-spacing: 0.2em;
+    }
   }
 {% endstylesheet %}
 
@@ -312,6 +365,12 @@
           "id": "image_mobile",
           "label": "Image mobile",
           "info": "Optionnel. Si vide, l'image principale est utilisée."
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Sur-titre",
+          "info": "Petit texte au-dessus du titre (optionnel)."
         },
         {
           "type": "textarea",
@@ -400,6 +459,13 @@
         { "value": "flex-end", "label": "Bas" }
       ],
       "default": "flex-end"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_text_below",
+      "label": "Mobile : texte sous l'image",
+      "info": "Image en haut, sur-titre, titre et bouton en dessous sur fond blanc.",
+      "default": false
     },
     {
       "type": "select",

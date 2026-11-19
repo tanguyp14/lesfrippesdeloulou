@@ -22,8 +22,41 @@
   class="section section--{{ section.settings.section_width }}{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %} spacing-style"
   style="{% render 'spacing-style', settings: section.settings %}"
 >
+  {% if section.settings.mobile_tiles %}
+    <div class="category-tiles">
+      {% for block in section.blocks %}
+        {% liquid
+          assign link_collection = nil
+          if block.settings.link contains '/collections/'
+            assign handle = block.settings.link | split: '/collections/' | last | split: '?' | first | split: '/' | first
+            assign link_collection = collections[handle]
+          endif
+          assign image = block.settings.image | default: link_collection.featured_image | default: link_collection.products.first.featured_image
+        %}
+        <a
+          href="{{ block.settings.link | default: '#' }}"
+          class="category-tiles__tile"
+        >
+          {% if image %}
+            {{
+              image
+              | image_url: width: 600
+              | image_tag: widths: '200, 300, 400, 600', sizes: '34vw', loading: 'lazy', alt: '', class: 'category-tiles__image'
+            }}
+          {% else %}
+            {{ 'collection-apparel-1' | placeholder_svg_tag: 'category-tiles__image category-links__placeholder' }}
+          {% endif %}
+          <span class="category-tiles__label">
+            <span class="category-tiles__title">{{ block.settings.title | escape }}</span>
+            <span class="category-tiles__arrow" aria-hidden="true">&rarr;</span>
+          </span>
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
   <collection-links-component
-    class="category-links"
+    class="category-links{% if section.settings.mobile_tiles %} category-links--desktop-only{% endif %}"
     layout="spotlight"
     alignment="{{ section.settings.alignment }}"
     {% if section.settings.image_position == 'left' %}
@@ -142,6 +175,65 @@
     }
   }
 
+  .category-tiles {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .category-links--desktop-only {
+      display: none;
+    }
+
+    .spacing-style:has(> .category-tiles) {
+      padding-block: 16px 48px;
+    }
+
+    /* Mobile : trois vignettes côte à côte, libellé et flèche en bas à gauche */
+    .category-tiles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .category-tiles__tile {
+      position: relative;
+      display: block;
+      aspect-ratio: 1 / 1.05;
+      overflow: hidden;
+      color: var(--color-foreground);
+      text-decoration: none;
+    }
+
+    .category-tiles__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .category-tiles__label {
+      position: absolute;
+      inset: auto 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 28px 8px 8px;
+      background: linear-gradient(to top, rgb(255 255 255 / 0.92) 40%, rgb(255 255 255 / 0));
+    }
+
+    .category-tiles__title {
+      font-size: 0.625rem;
+      line-height: 1.3;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .category-tiles__arrow {
+      font-size: 1rem;
+      line-height: 1;
+    }
+  }
+
   .category-links__placeholder {
     background-color: rgb(var(--color-foreground-rgb) / 0.05);
   }
@@ -180,6 +272,13 @@
     }
   ],
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "mobile_tiles",
+      "label": "Mobile : vignettes côte à côte",
+      "info": "Sur téléphone, affiche les catégories en vignettes avec image au lieu de la liste.",
+      "default": false
+    },
     {
       "type": "checkbox",
       "id": "show_count",

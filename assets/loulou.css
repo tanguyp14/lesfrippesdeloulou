@@ -85,3 +85,88 @@ body textarea::placeholder {
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
+
+/* ---- Maquettes client (novembre 2026) ---- */
+
+/* Boutons : lettres espacées, comme sur les maquettes. */
+.button,
+.button-secondary,
+.button-custom,
+button.shopify-payment-button__button--unbranded {
+  letter-spacing: 0.15em;
+}
+
+/* Fiche produit : titre espacé, boutons plus hauts et sans icône, onglets plus lisibles. */
+.product-details h1 {
+  letter-spacing: 0.06em;
+}
+
+@media screen and (max-width: 749px) {
+  .product-details h1 {
+    font-size: 1.75rem;
+    line-height: 1.15;
+  }
+}
+
+.product-details .product-form-buttons .add-to-cart-icon {
+  display: none;
+}
+
+.product-details .product-form-buttons button {
+  min-height: 52px;
+}
+
+.product-details .accordion summary,
+.product-details .details__header {
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+}
+
+/* Cartes produit : le bouton d'ajout rapide devient un simple « + » à droite du titre, sous la photo. */
+.product-grid .card-gallery,
+.resource-list .card-gallery {
+  overflow: visible;
+}
+
+.product-grid .card-gallery .quick-add__button,
+.resource-list .card-gallery .quick-add__button {
+  inset-block-end: auto !important;
+  inset-block-start: calc(100% + 2px);
+  inset-inline-end: 0 !important;
+  width: 32px !important;
+  height: 32px;
+  border: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  font-size: 0;
+  opacity: 1;
+}
+
+.product-grid .card-gallery .quick-add__button > *:not(.add-to-cart-icon),
+.resource-list .card-gallery .quick-add__button > *:not(.add-to-cart-icon) {
+  display: none !important;
+}
+
+.product-grid .card-gallery .quick-add__button .add-to-cart-icon,
+.resource-list .card-gallery .quick-add__button .add-to-cart-icon {
+  position: relative;
+  width: 32px;
+}
+
+.product-grid .card-gallery .quick-add__button .add-to-cart-icon > svg,
+.resource-list .card-gallery .quick-add__button .add-to-cart-icon > svg {
+  display: none;
+}
+
+.product-grid .card-gallery .quick-add__button .add-to-cart-icon::before,
+.resource-list .card-gallery .quick-add__button .add-to-cart-icon::before {
+  content: '+';
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-foreground);
+}
