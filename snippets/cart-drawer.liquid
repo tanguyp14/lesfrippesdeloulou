@@ -251,6 +251,14 @@
     padding-inline: 0;
   }
 
+  /* Panier vide : titre plus petit sur téléphone pour qu'il tienne sur une ligne */
+  @media screen and (max-width: 749px) {
+    .cart-drawer__content > .theme-drawer__title {
+      font-size: var(--font-size--lg, 1.125rem);
+      letter-spacing: 0.04em;
+    }
+  }
+
   cart-drawer-component:not(:has(.cart-form)) .cart-drawer__content {
     text-align: center;
     align-items: center;

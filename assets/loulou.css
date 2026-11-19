@@ -57,3 +57,31 @@ body textarea::placeholder {
   width: auto;
   padding-inline: 4px;
 }
+
+/* Bandeau cookies Shopify : « Accepter » en noir plein, « Refuser » / « Gérer » en blanc bordé de noir. */
+#shopify-pc__banner__btn-accept,
+#shopify-pc__prefs__header-accept {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: 1px solid #000 !important;
+}
+
+#shopify-pc__banner__btn-decline,
+#shopify-pc__banner__btn-manage-prefs,
+#shopify-pc__prefs__header-decline,
+#shopify-pc__prefs__header-save {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+}
+
+#shopify-pc__banner__btn-accept,
+#shopify-pc__banner__btn-decline,
+#shopify-pc__banner__btn-manage-prefs,
+#shopify-pc__prefs__header-accept,
+#shopify-pc__prefs__header-decline,
+#shopify-pc__prefs__header-save {
+  border-radius: 0 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}

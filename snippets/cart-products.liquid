@@ -300,6 +300,8 @@
                     {%- endif -%}
                   </div>
 
+                  {%- comment -%} Prix unitaire seulement si plusieurs exemplaires : sinon il doublonne le prix à droite {%- endcomment -%}
+                  {%- if item.quantity > 1 -%}
                   <div class="cart-items__unit-price-wrapper">
                     <div>
                       {% if item.original_price != item.final_price %}
@@ -335,6 +337,7 @@
                       {% endif %}
                     </div>
                   </div>
+                  {%- endif -%}
                 </td>
                 <td
                   class="cart-items__quantity"
