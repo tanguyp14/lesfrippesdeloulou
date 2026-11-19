@@ -257,6 +257,14 @@
       font-size: var(--font-size--lg, 1.125rem);
       letter-spacing: 0.04em;
     }
+
+    /* « Vous possédez un compte ? Connectez-vous… » : sur deux lignes équilibrées plutôt que collé aux bords */
+    .cart-items__wrapper--drawer-empty > p {
+      max-width: 28ch;
+      margin-inline: auto;
+      padding-inline: var(--padding-lg, 16px);
+      text-wrap: balance;
+    }
   }
 
   cart-drawer-component:not(:has(.cart-form)) .cart-drawer__content {
