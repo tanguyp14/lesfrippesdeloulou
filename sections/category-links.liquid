@@ -217,8 +217,10 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
-      padding: 28px 8px 8px;
-      background: linear-gradient(to top, rgb(255 255 255 / 0.92) 40%, rgb(255 255 255 / 0));
+      padding: 14px 8px 6px;
+      /* Fondu léger et court : juste assez pour lire le libellé, l'image reste visible */
+      background: linear-gradient(to top, rgb(255 255 255 / 0.7), rgb(255 255 255 / 0.35) 60%, rgb(255 255 255 / 0));
+      text-shadow: 0 0 6px rgb(255 255 255 / 0.8);
     }
 
     .category-tiles__title {
