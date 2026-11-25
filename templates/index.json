@@ -62,7 +62,7 @@
           "settings": {
             "title": "La boutique",
             "link": "/collections/all?view=boutique",
-            "image": "shopify://shop_images/manteau-burberry-marine.jpg"
+            "image": "shopify://shop_images/IMG_6712.jpg"
           }
         },
         "category_2": {
@@ -70,7 +70,7 @@
           "settings": {
             "title": "Les nouveautés",
             "link": "/collections/all?view=nouveautes&sort_by=created-descending",
-            "image": "shopify://shop_images/sac-cuir-noir-boucle-coeur.jpg"
+            "image": "shopify://shop_images/IMG_6699.jpg"
           }
         },
         "category_accessoires": {
@@ -78,7 +78,7 @@
           "settings": {
             "title": "Les archives vendues",
             "link": "/collections/all?view=vendues&filter.v.availability=0",
-            "image": "shopify://shop_images/lunettes-soleil-prada-etui.jpg"
+            "image": "shopify://shop_images/IMG_6720.jpg"
           }
         }
       },
