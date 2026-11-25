@@ -139,7 +139,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>Nouveautés pour la saison</h3>",
+                "text": "<h3>Les nouveautés pour la saison</h3>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
