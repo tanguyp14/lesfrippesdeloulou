@@ -15,7 +15,7 @@
         "panel_1": {
           "type": "panel",
           "settings": {
-            "image": "shopify://shop_images/IMG_6680.jpg",
+            "image": "shopify://shop_images/IMG_6720.jpg",
             "eyebrow": "Les archives de Loulou",
             "title": "Pièces de luxe premium",
             "button_label": "Voir la boutique",
@@ -453,7 +453,7 @@
         "text_hzq6cM": {
           "type": "text",
           "settings": {
-            "text": "<p>Foulard Hermès Vintage&nbsp;</p>",
+            "text": "<p>Doudoune Pyrenex&nbsp;</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "right",
@@ -483,7 +483,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/IMG_6557.jpg",
+        "image_1": "shopify://shop_images/IMG_6680.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
