@@ -15,7 +15,7 @@
         "panel_1": {
           "type": "panel",
           "settings": {
-            "image": "shopify://shop_images/IMG_6720.jpg",
+            "image": "shopify://shop_images/IMG_6671.jpg",
             "eyebrow": "Les archives de Loulou",
             "title": "Pièces de luxe premium",
             "button_label": "Voir la boutique",
@@ -25,7 +25,7 @@
         "panel_2": {
           "type": "panel",
           "settings": {
-            "image": "shopify://shop_images/IMG_6671.jpg",
+            "image": "shopify://shop_images/IMG_6720.jpg",
             "eyebrow": "Les archives de Loulou",
             "title": "Pièces de créateurs et d’exception",
             "button_label": "voir les nouveautés",
