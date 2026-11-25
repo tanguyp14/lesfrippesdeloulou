@@ -40,6 +40,12 @@
         <div
           class="hero-split__panel"
           id="hero-split-{{ block.id }}"
+          {% case block.settings.text_color %}
+            {% when 'light' %}
+              style="--hero-split-text-color: #FFFFFF;"
+            {% when 'dark' %}
+              style="--hero-split-text-color: #000000;"
+          {% endcase %}
           {{ block.shopify_attributes }}
         >
           {% if block.settings.link != blank %}
@@ -389,6 +395,18 @@
           "id": "link",
           "label": "Lien",
           "info": "Toute la bannière est cliquable."
+        },
+        {
+          "type": "select",
+          "id": "text_color",
+          "label": "Couleur des textes",
+          "info": "Sur-titre et titre. Le bouton n'est pas modifié.",
+          "options": [
+            { "value": "section", "label": "Réglage de la section" },
+            { "value": "light", "label": "Blanc" },
+            { "value": "dark", "label": "Noir" }
+          ],
+          "default": "section"
         }
       ]
     }
