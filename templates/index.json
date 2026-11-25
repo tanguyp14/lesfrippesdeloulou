@@ -19,7 +19,8 @@
             "eyebrow": "Les archives de Loulou",
             "title": "Pièces de luxe premium",
             "button_label": "Voir la boutique",
-            "link": "/collections/all?view=boutique"
+            "link": "/collections/all?view=boutique",
+            "text_color": "light"
           }
         },
         "panel_2": {
@@ -29,7 +30,8 @@
             "eyebrow": "Les archives de Loulou",
             "title": "Pièces de créateurs et d’exception",
             "button_label": "voir les nouveautés",
-            "link": "shopify://collections/ami-paris"
+            "link": "shopify://collections/ami-paris",
+            "text_color": "section"
           }
         }
       },
