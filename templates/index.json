@@ -70,7 +70,7 @@
           "settings": {
             "title": "Les nouveautés",
             "link": "/collections/all?view=nouveautes&sort_by=created-descending",
-            "image": "shopify://shop_images/IMG_6699.jpg"
+            "image": "shopify://shop_images/IMG_6554.jpg"
           }
         },
         "category_accessoires": {
@@ -78,7 +78,7 @@
           "settings": {
             "title": "Les archives vendues",
             "link": "/collections/all?view=vendues&filter.v.availability=0",
-            "image": "shopify://shop_images/IMG_6720.jpg"
+            "image": "shopify://shop_images/IMG_6663.jpg"
           }
         }
       },
