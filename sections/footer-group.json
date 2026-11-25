@@ -139,6 +139,7 @@
                 "menu_HFzgCj": {
                   "type": "menu",
                   "name": "t:names.menu",
+                  "disabled": true,
                   "settings": {
                     "menu": "contact-menu",
                     "heading": "Contact & informations",
