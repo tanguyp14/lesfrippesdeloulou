@@ -221,14 +221,15 @@
               this.ticking = false;
             });
           };
-          window.addEventListener('scroll', this.onScroll, { passive: true });
+          // Sur ordinateur, c'est .page-wrapper qui défile et non la fenêtre : on écoute en capture sur le document
+          document.addEventListener('scroll', this.onScroll, { capture: true, passive: true });
           window.addEventListener('resize', this.onScroll, { passive: true });
           this.update();
         }
 
         disconnectedCallback() {
           this.observer?.disconnect();
-          window.removeEventListener('scroll', this.onScroll);
+          document.removeEventListener('scroll', this.onScroll, { capture: true });
           window.removeEventListener('resize', this.onScroll);
         }
 
