@@ -47,7 +47,7 @@
         "gap": 0,
         "horizontal_alignment": "center",
         "vertical_alignment": "flex-end",
-        "mobile_text_below": true,
+        "mobile_text_below": false,
         "title_size": "h5",
         "text_color": "#ffffff",
         "toggle_overlay": true,
