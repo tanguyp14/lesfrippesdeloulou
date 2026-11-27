@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "histoire": {
@@ -12,6 +21,7 @@
             "caption_1": "Instagram, 9 juillet 2018",
             "image_2": "shopify://shop_images/histoire-2018-2.jpg",
             "caption_2": "Instagram, 30 septembre 2018",
+            "caption_3": "",
             "text": "En 2016, les premières ventes prennent forme dans une chambre, avec des vêtements personnels puis des pièces confiées par la famille et les amis. Dès 2018, les trouvailles commencent à être partagées sur Instagram : sportswear, vintage et premières sélections composent les débuts des Fripes de Loulou."
           }
         },
@@ -38,6 +48,7 @@
             "caption_1": "Façade de la seconde boutique",
             "image_2": "shopify://shop_images/histoire-2025-2.jpg",
             "caption_2": "Espace café et friperie",
+            "caption_3": "",
             "text": "Les Fripes de Loulou s'installent ensuite en centre-ville pour accueillir un public plus large. La boutique partage désormais son adresse avec le Café d'Angio, porté par Camille, la sœur de Louis. Un lieu où le vintage se découvre aussi autour d'un café ou d'une pâtisserie."
           }
         },
@@ -50,6 +61,7 @@
             "caption_1": "Le studio photo",
             "image_2": "shopify://shop_images/histoire-2026-2.jpg",
             "caption_2": "Préparation du premier drop",
+            "caption_3": "",
             "text": "Les Archives de Loulou prolongent cette histoire avec une sélection plus resserrée : pièces vintage ou contemporaines, accessoires et créations remarquables, choisis un à un pour leur qualité, leur authenticité et leur histoire. Le studio photo prend forme et les premières pièces sont cataloguées. Une invitation à découvrir, autant qu'à acheter."
           }
         }
