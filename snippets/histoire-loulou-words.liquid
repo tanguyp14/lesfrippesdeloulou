@@ -1,0 +1,10 @@
+{%- doc -%}
+  Découpe un texte en mots masqués pour l'animation « mot à mot » de la section Histoire.
+
+  @param {string} text - Le texte à découper
+{%- enddoc -%}
+{%- assign words = text | split: ' ' -%}
+{%- for word in words -%}
+  <span class="hl__word"><span style="--i: {{ forloop.index0 }};">{{ word | escape }}</span></span>
+  {%- unless forloop.last %} {% endunless -%}
+{%- endfor -%}

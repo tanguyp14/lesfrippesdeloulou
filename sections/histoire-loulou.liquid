@@ -1,0 +1,947 @@
+{% comment %}
+  Histoire (chronologie) : page éditoriale en chapitres (année, titre, 1 à 3 photos légendées, texte).
+  Animations au défilement : titres qui montent mot à mot, photos dévoilées de bas en haut avec léger
+  parallaxe, filets qui se tracent, grande année en filigrane, sommaire des années collant sur ordinateur.
+{% endcomment %}
+
+{% liquid
+  assign chapter_count = section.blocks.size
+  assign total_label = chapter_count | prepend: '0' | slice: -2, 2
+%}
+
+<div
+  class="section section--page-width spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <histoire-loulou
+    class="hl{% if section.settings.uppercase %} hl--uppercase{% endif %}{% if section.settings.show_ghost_year %} hl--ghost{% endif %}"
+  >
+    {% if section.settings.brand != blank or section.settings.label != blank %}
+      <div class="hl__topbar" data-hl-reveal>
+        <span class="hl__brand">{{ section.settings.brand | escape }}</span>
+        <span class="hl__label">{{ section.settings.label | escape }}</span>
+        <span class="hl__rule"></span>
+      </div>
+    {% endif %}
+
+    <header class="hl__intro">
+      {% if section.settings.intro_period != blank %}
+        <p class="hl__kicker" data-hl-reveal>{{ section.settings.intro_period | escape }}</p>
+      {% endif %}
+      {% if section.settings.intro_title != blank %}
+        <h1 class="hl__intro-title" data-hl-reveal>
+          {%- render 'histoire-loulou-words', text: section.settings.intro_title -%}
+        </h1>
+      {% endif %}
+      {% if section.settings.intro_text != blank %}
+        <div class="hl__intro-text" data-hl-reveal>{{ section.settings.intro_text }}</div>
+      {% endif %}
+      {% if chapter_count > 0 %}
+        <div class="hl__scroll" data-hl-reveal aria-hidden="true">
+          <span class="hl__scroll-line"></span>
+        </div>
+      {% endif %}
+    </header>
+
+    <div class="hl__body">
+      {% if chapter_count > 1 %}
+        <nav class="hl__index" aria-label="Chronologie">
+          <ol>
+            {% for block in section.blocks %}
+              <li>
+                <a
+                  href="#hl-{{ block.id }}"
+                  class="hl__index-link"
+                  data-index="{{ forloop.index0 }}"
+                  {% if forloop.first %}
+                    aria-current="step"
+                  {% endif %}
+                >
+                  <span class="hl__index-num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+                  <span class="hl__index-year">{{ block.settings.year | escape }}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ol>
+          <span class="hl__index-track" aria-hidden="true"><span class="hl__index-fill"></span></span>
+        </nav>
+      {% endif %}
+
+      <div class="hl__chapters">
+        {% for block in section.blocks %}
+          {% liquid
+            assign image_count = 0
+            if block.settings.image_1 != blank
+              assign image_count = image_count | plus: 1
+            endif
+            if block.settings.image_2 != blank
+              assign image_count = image_count | plus: 1
+            endif
+            if block.settings.image_3 != blank
+              assign image_count = image_count | plus: 1
+            endif
+            assign placeholder_count = 0
+            assign cols = image_count
+            if image_count == 0
+              assign placeholder_count = 2
+              assign cols = 2
+            endif
+            assign num_label = forloop.index | prepend: '0' | slice: -2, 2
+            assign ghost = block.settings.year | split: ' ' | last | strip
+          %}
+          <article
+            class="hl__chapter hl__chapter--cols-{{ cols }}"
+            id="hl-{{ block.id }}"
+            data-index="{{ forloop.index0 }}"
+            {{ block.shopify_attributes }}
+          >
+            {% if section.settings.show_ghost_year and ghost != blank %}
+              <span class="hl__ghost" aria-hidden="true">{{ ghost | escape }}</span>
+            {% endif %}
+
+            {% if block.settings.year != blank %}
+              <p class="hl__year" data-hl-reveal>
+                {%- assign chars = block.settings.year | split: '' -%}
+                {%- for char in chars -%}
+                  <span class="hl__char" style="--i: {{ forloop.index0 }};">
+                    {%- if char == ' ' -%}&nbsp;{%- else -%}{{ char | escape }}{%- endif -%}
+                  </span>
+                {%- endfor -%}
+              </p>
+            {% endif %}
+
+            {% if block.settings.title != blank %}
+              <h2 class="hl__title" data-hl-reveal>
+                {%- render 'histoire-loulou-words', text: block.settings.title -%}
+              </h2>
+            {% endif %}
+
+            <div class="hl__gallery">
+              {% if image_count > 0 %}
+                {% for n in (1..3) %}
+                  {% liquid
+                    assign image_key = 'image_' | append: n
+                    assign caption_key = 'caption_' | append: n
+                    assign image = block.settings[image_key]
+                    assign caption = block.settings[caption_key]
+                  %}
+                  {% if image != blank %}
+                    <figure class="hl__figure" data-hl-reveal style="--d: {{ forloop.index0 }};">
+                      <div class="hl__media">
+                        {{
+                          image
+                          | image_url: width: 1600
+                          | image_tag:
+                            widths: '400, 600, 800, 1000, 1200, 1600',
+                            sizes: '(min-width: 990px) calc((100vw - 320px) / 2), (min-width: 750px) 50vw, 80vw',
+                            loading: 'lazy',
+                            class: 'hl__image',
+                            alt: image.alt | default: caption
+                        }}
+                      </div>
+                      {% if caption != blank %}
+                        <figcaption class="hl__caption">{{ caption | escape }}</figcaption>
+                      {% endif %}
+                    </figure>
+                  {% endif %}
+                {% endfor %}
+              {% else %}
+                {% for n in (1..placeholder_count) %}
+                  <figure class="hl__figure" data-hl-reveal style="--d: {{ forloop.index0 }};">
+                    <div class="hl__media">
+                      {{ 'hero-apparel-1' | placeholder_svg_tag: 'hl__image hl__placeholder' }}
+                    </div>
+                  </figure>
+                {% endfor %}
+              {% endif %}
+            </div>
+
+            {% if block.settings.text != blank %}
+              <div class="hl__text" data-hl-reveal>
+                <span class="hl__rule"></span>
+                <p>{{ block.settings.text | escape | newline_to_br }}</p>
+              </div>
+            {% endif %}
+
+            <footer class="hl__footer" data-hl-reveal>
+              <span class="hl__rule"></span>
+              <span>{{ section.settings.footer_label | escape }}</span>
+              <span class="hl__count">{{ num_label }} — {{ total_label }}</span>
+            </footer>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </histoire-loulou>
+</div>
+
+<script>
+  if (!customElements.get('histoire-loulou')) {
+    customElements.define(
+      'histoire-loulou',
+      class extends HTMLElement {
+        connectedCallback() {
+          this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          this.chapters = [...this.querySelectorAll('.hl__chapter')];
+          this.links = [...this.querySelectorAll('.hl__index-link')];
+          this.fill = this.querySelector('.hl__index-fill');
+          this.figures = [...this.querySelectorAll('.hl__figure')];
+
+          // En mode éditeur ou si l'utilisateur limite les animations, tout est affiché d'emblée
+          if (this.reduced || window.Shopify?.designMode) {
+            this.querySelectorAll('[data-hl-reveal]').forEach((el) => el.classList.add('is-visible'));
+          } else {
+            this.classList.add('hl--animate');
+            this.observer = new IntersectionObserver(
+              (entries) =>
+                entries.forEach((entry) => {
+                  if (!entry.isIntersecting) return;
+                  entry.target.classList.add('is-visible');
+                  this.observer.unobserve(entry.target);
+                }),
+              { rootMargin: '0px 0px -12% 0px', threshold: 0.12 }
+            );
+            this.querySelectorAll('[data-hl-reveal]').forEach((el) => this.observer.observe(el));
+          }
+
+          this.links.forEach((link) =>
+            link.addEventListener('click', (event) => {
+              const target = this.chapters[Number(link.dataset.index)];
+              if (!target) return;
+              event.preventDefault();
+              target.scrollIntoView({ behavior: this.reduced ? 'auto' : 'smooth', block: 'start' });
+            })
+          );
+
+          this.onScroll = () => {
+            if (this.ticking) return;
+            this.ticking = true;
+            requestAnimationFrame(() => {
+              this.update();
+              this.ticking = false;
+            });
+          };
+          window.addEventListener('scroll', this.onScroll, { passive: true });
+          window.addEventListener('resize', this.onScroll, { passive: true });
+          this.update();
+        }
+
+        disconnectedCallback() {
+          this.observer?.disconnect();
+          window.removeEventListener('scroll', this.onScroll);
+          window.removeEventListener('resize', this.onScroll);
+        }
+
+        update() {
+          const vh = window.innerHeight;
+
+          // Chapitre actif : le dernier dont le haut est passé au-dessus du milieu de l'écran
+          let active = 0;
+          this.chapters.forEach((chapter, i) => {
+            const rect = chapter.getBoundingClientRect();
+            if (rect.top < vh * 0.5) active = i;
+            if (!this.reduced) {
+              // -1 quand le chapitre entre par le bas, 1 quand il sort par le haut
+              const progress = (vh - rect.top) / (vh + rect.height);
+              chapter.style.setProperty('--hl-progress', (progress * 2 - 1).toFixed(3));
+            }
+          });
+
+          this.links.forEach((link, i) => link.setAttribute('aria-current', i === active ? 'step' : 'false'));
+
+          if (this.fill && this.chapters.length) {
+            const first = this.chapters[0].getBoundingClientRect();
+            const last = this.chapters[this.chapters.length - 1].getBoundingClientRect();
+            const total = last.bottom - first.top - vh * 0.5;
+            const done = Math.min(Math.max((vh * 0.5 - first.top) / total, 0), 1);
+            this.fill.style.transform = `scaleY(${done.toFixed(3)})`;
+          }
+
+          if (!this.reduced) {
+            this.figures.forEach((figure) => {
+              const rect = figure.getBoundingClientRect();
+              if (rect.bottom < 0 || rect.top > vh) return;
+              const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
+              figure.style.setProperty('--hl-shift', `${(progress * -40).toFixed(1)}px`);
+            });
+          }
+        }
+      }
+    );
+  }
+</script>
+
+{% stylesheet %}
+  .hl {
+    --hl-muted: rgb(var(--color-foreground-rgb) / 0.5);
+    --hl-line: rgb(var(--color-foreground-rgb) / 0.12);
+    --hl-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --hl-gap: 14px;
+    display: block;
+    position: relative;
+  }
+
+  .hl--uppercase {
+    text-transform: uppercase;
+  }
+
+  /* Bandeau haut : marque à gauche, rubrique à droite */
+  .hl__topbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block-end: 18px;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .hl__brand {
+    font-weight: 600;
+  }
+
+  .hl__label {
+    color: var(--hl-muted);
+  }
+
+  .hl__rule {
+    display: block;
+    height: 1px;
+    background: var(--hl-line);
+    transform-origin: left;
+  }
+
+  .hl__topbar .hl__rule {
+    position: absolute;
+    inset: auto 0 0;
+  }
+
+  /* Ouverture */
+  .hl__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-block: clamp(56px, 12vw, 160px) clamp(48px, 8vw, 110px);
+  }
+
+  .hl__kicker,
+  .hl__year {
+    margin: 0;
+    color: var(--hl-muted);
+    font-size: 0.8125rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hl__intro-title {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 8.5vw, 7.5rem);
+    line-height: 0.98;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .hl__intro-text {
+    max-width: 42rem;
+    color: var(--hl-muted);
+    letter-spacing: 0.06em;
+    line-height: 1.9;
+  }
+
+  .hl__intro-text p {
+    margin: 0;
+  }
+
+  .hl__scroll {
+    width: 1px;
+    height: 64px;
+    margin-block-start: 16px;
+    overflow: hidden;
+    background: var(--hl-line);
+  }
+
+  .hl__scroll-line {
+    display: block;
+    width: 100%;
+    height: 40%;
+    background: var(--color-foreground);
+    animation: hl-scroll 2.2s var(--hl-ease) infinite;
+  }
+
+  @keyframes hl-scroll {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(260%);
+    }
+  }
+
+  /* Mots qui montent depuis un masque */
+  .hl__word {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    padding-block-end: 0.08em;
+    margin-block-end: -0.08em;
+  }
+
+  .hl__word > span {
+    display: inline-block;
+  }
+
+  .hl__char {
+    display: inline-block;
+  }
+
+  /* Corps : sommaire collant + chapitres */
+  .hl__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hl__index {
+    display: none;
+  }
+
+  .hl__chapters {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(90px, 14vw, 200px);
+  }
+
+  .hl__chapter {
+    --hl-progress: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    scroll-margin-top: 100px;
+  }
+
+  .hl__ghost {
+    position: absolute;
+    z-index: 0;
+    inset-block-start: -0.3em;
+    inset-inline-end: -0.04em;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: clamp(6rem, 24vw, 22rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(var(--color-foreground-rgb) / 0.08);
+    pointer-events: none;
+    user-select: none;
+    transform: translate3d(0, calc(var(--hl-progress) * -18%), 0);
+    will-change: transform;
+  }
+
+  .hl__chapter > *:not(.hl__ghost) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hl__year {
+    margin-block-end: 22px;
+  }
+
+  .hl__title {
+    margin: 0 0 clamp(28px, 4vw, 44px);
+    font-family: var(--font-heading--family);
+    font-weight: 300;
+    font-size: clamp(1.75rem, 4.2vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .hl__gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--hl-gap);
+  }
+
+  .hl__chapter--cols-1 .hl__gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hl__chapter--cols-3 .hl__gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hl__figure {
+    margin: 0;
+  }
+
+  .hl__media {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: rgb(var(--color-foreground-rgb) / 0.04);
+  }
+
+  .hl__chapter--cols-3 .hl__media {
+    aspect-ratio: 9 / 17;
+  }
+
+  .hl__chapter--cols-1 .hl__media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .hl__image {
+    position: absolute;
+    inset: -40px 0;
+    width: 100%;
+    height: calc(100% + 80px);
+    object-fit: cover;
+    transform: translate3d(0, var(--hl-shift, 0px), 0);
+    will-change: transform;
+  }
+
+  .hl__figure:hover .hl__image {
+    scale: 1.035;
+  }
+
+  .hl__image {
+    transition: scale 1.1s var(--hl-ease);
+  }
+
+  .hl__placeholder {
+    inset: 0;
+    height: 100%;
+  }
+
+  .hl__caption {
+    margin-block-start: 14px;
+    color: var(--hl-muted);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hl__text {
+    margin-block-start: clamp(36px, 5vw, 56px);
+  }
+
+  .hl__text p {
+    max-width: 62rem;
+    margin: 22px 0 0;
+    letter-spacing: 0.06em;
+    line-height: 2;
+  }
+
+  .hl__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 6px 16px;
+    margin-block-start: clamp(48px, 7vw, 90px);
+    color: var(--hl-muted);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hl__footer .hl__rule {
+    flex-basis: 100%;
+    margin-block-end: 14px;
+  }
+
+  .hl__count {
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media screen and (min-width: 990px) {
+    .hl__body {
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 48px;
+    }
+
+    .hl__index {
+      position: sticky;
+      top: 120px;
+      align-self: start;
+      display: flex;
+      gap: 18px;
+    }
+
+    .hl__index ol {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hl__index-link {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      color: var(--hl-muted);
+      font-size: 0.6875rem;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      transition: color 0.4s ease, transform 0.5s var(--hl-ease);
+    }
+
+    .hl__index-num {
+      font-size: 0.625rem;
+      opacity: 0.6;
+    }
+
+    .hl__index-link:hover,
+    .hl__index-link[aria-current='step'] {
+      color: var(--color-foreground);
+    }
+
+    .hl__index-link[aria-current='step'] {
+      transform: translateX(6px);
+    }
+
+    .hl__index-track {
+      order: -1;
+      position: relative;
+      width: 1px;
+      background: var(--hl-line);
+    }
+
+    .hl__index-fill {
+      position: absolute;
+      inset: 0;
+      background: var(--color-foreground);
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .hl__topbar {
+      font-size: 0.625rem;
+    }
+
+    /* Photos en défilement horizontal, la suivante dépasse pour inviter au glissement */
+    .hl__chapter .hl__gallery {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: 78%;
+      margin-inline: calc(-1 * var(--page-margin, 16px));
+      padding-inline: var(--page-margin, 16px);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: var(--page-margin, 16px);
+      scrollbar-width: none;
+    }
+
+    .hl__gallery::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hl__chapter.hl__chapter--cols-1 .hl__gallery {
+      grid-auto-columns: 100%;
+    }
+
+    .hl__figure {
+      scroll-snap-align: start;
+    }
+
+    .hl__chapter .hl__media,
+    .hl__chapter--cols-3 .hl__media,
+    .hl__chapter--cols-1 .hl__media {
+      aspect-ratio: 3 / 4;
+    }
+
+    .hl__text p {
+      font-size: 0.8125rem;
+      line-height: 1.9;
+    }
+  }
+
+  /* ---------- Animations (activées par le script, hors éditeur) ---------- */
+  .hl--animate [data-hl-reveal] {
+    --hl-t: 1.1s;
+  }
+
+  .hl--animate .hl__topbar > span:not(.hl__rule),
+  .hl--animate .hl__kicker,
+  .hl--animate .hl__intro-text,
+  .hl--animate .hl__caption,
+  .hl--animate .hl__text p,
+  .hl--animate .hl__footer > span:not(.hl__rule) {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.9s var(--hl-ease),
+      transform 0.9s var(--hl-ease);
+  }
+
+  .hl--animate .hl__rule {
+    transform: scaleX(0);
+    transition: transform 1.4s var(--hl-ease);
+  }
+
+  .hl--animate .hl__word > span {
+    transform: translateY(105%);
+    transition: transform 1.1s var(--hl-ease);
+    transition-delay: calc(var(--i, 0) * 70ms + 100ms);
+  }
+
+  .hl--animate .hl__char {
+    opacity: 0;
+    transform: translateY(0.6em);
+    transition:
+      opacity 0.6s var(--hl-ease),
+      transform 0.6s var(--hl-ease);
+    transition-delay: calc(var(--i, 0) * 45ms);
+  }
+
+  .hl--animate .hl__media {
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 1.4s var(--hl-ease);
+    transition-delay: calc(var(--d, 0) * 140ms);
+  }
+
+  .hl--animate .hl__media .hl__image {
+    scale: 1.18;
+    transition: scale 1.8s var(--hl-ease);
+    transition-delay: calc(var(--d, 0) * 140ms);
+  }
+
+  .hl--animate .hl__scroll {
+    opacity: 0;
+    transition: opacity 1s ease 0.9s;
+  }
+
+  .hl--animate .hl__ghost {
+    opacity: 0;
+    transition: opacity 1.6s ease;
+  }
+
+  /* États visibles */
+  .hl [data-hl-reveal].is-visible > span:not(.hl__rule),
+  .hl .hl__kicker.is-visible,
+  .hl .hl__intro-text.is-visible,
+  .hl .is-visible .hl__caption,
+  .hl .is-visible.hl__text p,
+  .hl .hl__scroll.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hl .is-visible .hl__rule,
+  .hl .is-visible.hl__text .hl__rule {
+    transform: none;
+  }
+
+  .hl .is-visible .hl__word > span,
+  .hl .is-visible .hl__char {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hl .hl__figure.is-visible .hl__media {
+    clip-path: inset(0 0 0 0);
+  }
+
+  .hl .hl__figure.is-visible .hl__image {
+    scale: 1;
+  }
+
+  .hl .hl__figure.is-visible:hover .hl__image {
+    scale: 1.035;
+    transition-delay: 0s;
+  }
+
+  .hl .hl__figure.is-visible .hl__caption {
+    transition-delay: calc(var(--d, 0) * 140ms + 500ms);
+  }
+
+  .hl .is-visible.hl__text p {
+    transition-delay: 250ms;
+  }
+
+  .hl--animate .hl__chapter:has(.hl__title.is-visible) .hl__ghost {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hl__scroll-line {
+      animation: none;
+    }
+
+    .hl__ghost,
+    .hl__image {
+      transform: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Histoire (chronologie)",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "blocks": [
+    {
+      "type": "chapter",
+      "name": "Chapitre",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Année ou période",
+          "default": "2016 — 2018"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Les premières pièces"
+        },
+        {
+          "type": "header",
+          "content": "Photos",
+          "info": "1 à 3 photos. Leur nombre règle la mise en page."
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Photo 1"
+        },
+        {
+          "type": "text",
+          "id": "caption_1",
+          "label": "Légende 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Photo 2"
+        },
+        {
+          "type": "text",
+          "id": "caption_2",
+          "label": "Légende 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Photo 3"
+        },
+        {
+          "type": "text",
+          "id": "caption_3",
+          "label": "Légende 3"
+        },
+        {
+          "type": "header",
+          "content": "Texte"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texte"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Bandeau"
+    },
+    {
+      "type": "text",
+      "id": "brand",
+      "label": "Texte de gauche",
+      "default": "Les archives de Loulou"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Texte de droite",
+      "default": "L'histoire de Loulou"
+    },
+    {
+      "type": "header",
+      "content": "Ouverture"
+    },
+    {
+      "type": "text",
+      "id": "intro_period",
+      "label": "Période",
+      "default": "2016 — 2026"
+    },
+    {
+      "type": "text",
+      "id": "intro_title",
+      "label": "Titre",
+      "default": "L'histoire de Loulou"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Texte d'introduction"
+    },
+    {
+      "type": "header",
+      "content": "Chapitres"
+    },
+    {
+      "type": "text",
+      "id": "footer_label",
+      "label": "Mention en bas de chapitre",
+      "default": "Archives / Sélection / Seconde main"
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase",
+      "label": "Textes en majuscules",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_ghost_year",
+      "label": "Grande année en filigrane",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Marges"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Haut",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bas",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 120
+    }
+  ],
+  "presets": [
+    {
+      "name": "Histoire (chronologie)",
+      "blocks": [
+        { "type": "chapter" },
+        { "type": "chapter", "settings": { "year": "2023", "title": "Une première adresse" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
